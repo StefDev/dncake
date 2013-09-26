@@ -1,7 +1,13 @@
 tmp/*
 [Cc]onfig/core.php
 [Cc]onfig/database.php
+app/Controller/Component/empty
 app/tmp/*
-app/[Cc]onfig/core.php
-app/[Cc]onfig/database.php
+app/Model/AppModel.php
+app/View/Common/sidebar.ctp
+app/View/Helper/AppHelper.php
+app/View/Layouts/flash.ctp
+app/View/Records/all.ctp
+app/webroot/css/cake.generic.css
+app/webroot/img/template/dn_?o*
 !empty
