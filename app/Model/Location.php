@@ -1,2 +1,4 @@
 <?php
-class Location extends AppModel {}
+class Location extends AppModel {
+  //public $hasMany = "Event";
+}

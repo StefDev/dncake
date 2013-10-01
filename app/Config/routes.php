@@ -52,6 +52,7 @@
   Router::connect('/veroeffentlichungen', array('controller' => 'records', 'action' => 'index'));
   Router::connect('/veroeffentlichungen/alle', array('controller' => 'records', 'action' => 'alle'));
   
+  Router::connect('/festival', array('controller' => 'pages', 'action' => 'display', 'festival'));
   Router::connect('/impressum', array('controller' => 'pages', 'action' => 'display', 'impressum'));
 
 /**

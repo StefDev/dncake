@@ -1,6 +1,8 @@
 <?php
 class News extends AppModel
 {
+  public $belongsTo = 'Author';
+
   public function afterFind($results, $primary = false) {
     foreach ($results as $key => $value) {
       if (isset($value["News"]["body"])) {

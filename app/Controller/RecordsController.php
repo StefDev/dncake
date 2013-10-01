@@ -7,7 +7,7 @@ class RecordsController extends AppController {
   public function index() {
     $this->set("title_for_layout", "kommende Platten & weitere Veröffentlichungen");
     $records = $this->Record->find("all", array(
-        "conditions" => array("Record.releasedate >=" => date("Y-m-d H:i:s")),
+        "conditions" => array("Record.releasedate >=" => date("Y-m-d"), "Record.platform !=" => "sze"),
         "order" => array("Record.releasedate" => "ASC")
       )
     );
@@ -16,7 +16,6 @@ class RecordsController extends AppController {
   
   public function alle() {
     $this->set("title_for_layout", "alle Veröffentlichungen");
-    //$this->render("all");
     $this->_all();
   }
   
@@ -26,5 +25,6 @@ class RecordsController extends AppController {
       )
     );
     $this->set("records", $records);
+    $this->render("all");
   }
 }

@@ -24,14 +24,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <head>
 	<!-- <?php echo $this->Html->charset(); ?> -->
   <meta charset="utf-8">
-  <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width")); ?>
-  <?php echo $this->Html->meta(array("name" => "robots", "content" => "noindex, nofollow")); ?>
+  <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width")); ?>  
 	<title>
 		<?php echo $title_for_layout; ?>
     &ndash; DARKNEuSS.de
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
+    //echo $this->Html->meta('icon');
 
 		echo $this->Html->css(array("cake.generic", "darkneuss"));
 
@@ -76,13 +75,33 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				);
 			?>
       &middot; -->
-      &middot;
+      -
       <?php echo $this->Html->link('Impressum', '/impressum'); ?>
-      &middot;
+      -
+      <?php echo $this->Html->link('Festival', '/festival'); ?>
+      -
       <?php echo $this->Html->link('Archiv', '/archiv', array('target' => '_blank')); ?>
-      &middot;
+      -
 		</footer>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
+  <?php if (Configure::read('debug') == 0) { ?>
+  <!-- Piwik -->
+  <script type="text/javascript"> 
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://pwk.skww.de//";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', 1]);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+      g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+
+  </script>
+  <noscript><p><img src="http://pwk.skww.de/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Code -->
+  <?php } ?>
 </body>
 </html>

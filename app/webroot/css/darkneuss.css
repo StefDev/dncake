@@ -5,6 +5,7 @@ body {
   background: url(../img/template/dn_bg.gif) repeat scroll left top #062136;
   margin: 4px;
   font-family: Georgia,serif;
+  /* font-size: medium; */
 }
 
 .pirata { font-family: 'Pirata One', cursive; }
@@ -20,11 +21,15 @@ a {
 }
 
 a:hover {
-  color: cyan;
+  color: cyan;  
 }
 
 h2 {
   background: none;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px black;
 }
 
 .float-left {
@@ -35,6 +40,35 @@ h2 {
   float: right;
 }
 
+/* Tables */
+.dataset {
+  list-style-type: none;
+  overflow: hidden;  
+}
+
+.dataset li {
+  float: left;
+  color: #FFF;
+}
+
+article:target .dataset li {
+  background-color: #3D5E7D;
+}
+
+/* Columns */
+ul.cols-2 li {
+  width: 50%;
+}
+
+ul.cols-3 li {
+  width: 33.3%;
+}
+
+ul.cols-4 li {
+  width: 25%;
+}
+
+/* Main Template */
 header h1 {
   font-family: 'Pirata One', cursive;
   font-size: 68pt;
@@ -129,7 +163,8 @@ article header p {
 }
 
 small.date {
-  color: #062136;
+  /* color: #062136; */
+  color: #fff;
   background-color: #3D5E7D;
   padding: 2px;
 }
@@ -208,21 +243,14 @@ aside.sidebar section h2 {
   min-height: 24px;
 }
 
-/* Tables */
-.dataset {
-  list-style-type: none;
-}
-
-.dataset li {
-  color: #FFF;
-}
-
 /* Colors */
 .lightblue, .darkblue { color: #3D5E7D; }
+.opaque { color: rgba(255,255,255,0.5) }
 
-@media all and (max-width: 680px) {
+@media all and (max-width: 679px) {
   /* hide this elements */
   header h1 span.beta,
+  header h1 span.slogan,
   table.cake-sql-log
   {
     display: none;
@@ -268,5 +296,19 @@ aside.sidebar section h2 {
   
   aside.sidebar section figure img {
     max-width: 100%;
+  }
+  
+  .dataset {    
+    overflow: visible;
+  }
+
+  .dataset li {
+    float: none;
+  }
+  
+  ul.cols-2 li,
+  ul.cols-3 li,
+  ul.cols-4 li {
+    width: 100%;
   }
 }
