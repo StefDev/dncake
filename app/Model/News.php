@@ -1,6 +1,7 @@
 <?php
 class News extends AppModel
 {
+  //public $hasOne = "OpenGraph";
   public $belongsTo = 'Author';
 
   public function afterFind($results, $primary = false) {

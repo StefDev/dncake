@@ -10,7 +10,7 @@
     <p><?php echo $entry["News"]["body"] ?></p>
     <footer>
       <?php echo $this->Html->link("&laquo; zurück zur News-Übersicht", array("controller" => "news", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>
-      <?php echo $this->Html->link("diesen Eintrag auf Facebook teilen &raquo;", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/news/" . $entry["News"]["url_id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>
+      <?php echo $this->Html->link("diesen Artikel auf Facebook teilen &raquo;", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/news/" . $entry["News"]["url_id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>
     </footer>
   </article>
 </section>

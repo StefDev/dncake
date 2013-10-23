@@ -19,6 +19,12 @@ class RecordsController extends AppController {
     $this->_all();
   }
   
+  public function add() { // http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/part-two.html#adding-posts
+    if ($this->request->is("post")) {
+      
+    }
+  }
+  
   protected function _all() {
     $records = $this->Record->find("all", array(
         "order" => array("Record.releasedate" => "DESC")

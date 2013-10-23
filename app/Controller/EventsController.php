@@ -9,5 +9,7 @@ class EventsController extends AppController {
     $this->set("events", $events);
   }
   
-  public function info() {}
+  public function info() {
+    
+  }
 }

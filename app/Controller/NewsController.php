@@ -7,6 +7,12 @@ class NewsController extends AppController {
       "conditions" => array("News.published" => "1"),
       "order" => array("News.created" => "DESC")
     )));
+    $this->set("description", "DARKNEuSS.de ist wieder da! Erfahrt alles Aktuelle rund um unsere Dreifaltigkeitsbegriffe 'Metal', 'Gothic' und 'Neuss'.");
+    $this->set("ogp", array(
+      "title" => "News - DARKNEuSS.de",
+      "type" => "website",
+      "url" => "/news"
+    ));
   }
 
   public function view($url_id = null) {
@@ -20,7 +26,22 @@ class NewsController extends AppController {
     if (!$news) {
       throw new NotFoundException(__("News not found"));
     }
+    
+    // update the 'visited' counter by using the model's save method
+    $this->News->save(
+      array("id" => $news["News"]["id"], "modified" => false, "visited" => $news["News"]["visited"] + 1),
+      true,  // validate
+      array("visited")
+    );
+    
     $this->set("entry", $news);
+    $this->set("title_for_layout", $news["News"]["title"]);
+    $this->set("description", $news["News"]["description"]);
+    $this->set("ogp", array(
+      "title" => $news["News"]["title"],
+      "type" => "article",
+      "url" => "/news/" . $news["News"]["url_id"],
+    ));
   }
   
   public function year($year = null) {

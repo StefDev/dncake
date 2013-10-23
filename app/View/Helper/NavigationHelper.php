@@ -49,6 +49,7 @@ class NavigationHelper extends AppHelper {
       
       if ($this->isActive($item)) {
         $class[] = "active";
+        $class[] = "text-shadow";
       }
       
       $url = $this->getUrl($item);

@@ -25,25 +25,46 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<!-- <?php echo $this->Html->charset(); ?> -->
   <meta charset="utf-8">
   <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width")); ?>  
-	<title>
-		<?php echo $title_for_layout; ?>
-    &ndash; DARKNEuSS.de
-	</title>
+	<title><?php echo $title_for_layout; ?> &ndash; DARKNEuSS.de</title>
 	<?php
     //echo $this->Html->meta('icon');
+    
+    // Meta Tags
+    echo $this->fetch('meta');
+    
+    if (isset($description)) {
+      echo $this->Html->meta(array("name" => "Description", "content" => $description));
+    }
+    
+    if (isset($ogp)) {
+      echo $this->Html->meta(array("property" => "og:title", "content" => $ogp["title"]));
+      echo $this->Html->meta(array("property" => "og:type", "content" => $ogp["type"]));
+      echo $this->Html->meta(array("property" => "og:url", "content" => "http://darkneuss.de" . $ogp["url"]));
+      echo $this->Html->meta(array("property" => "og:image", "content" => "http://darkneuss.de/img/fbdn.png"));
+      echo $this->Html->meta(array("property" => "og:site_name", "content" => "DARKNEuSS.de"));
+      echo $this->Html->meta(array("property" => "og:locale", "content" => "de_DE"));
+      if (isset($description)) { echo $this->Html->meta(array("property" => "og:description", "content" => $description)); }
+      
+      echo $this->Html->meta(array("property" => "twitter:card", "content" => "summary"));
+      echo $this->Html->meta(array("property" => "twitter:title", "content" => $ogp["title"]));
+      if (isset($description)) { echo $this->Html->meta(array("property" => "twitter:description", "content" => $description)); }
+      echo $this->Html->meta(array("property" => "twitter:image:src", "content" => "http://darkneuss.de/img/fbdn.png"));
+      echo $this->Html->meta(array("property" => "twitter:domain", "content" => "darkneuss.de"));
+    }
 
-		echo $this->Html->css(array("cake.generic", "darkneuss"));
-
-		echo $this->fetch('meta');
+    // Cascading Style Sheets
 		echo $this->fetch('css');
+    echo $this->Html->css(array("cake.generic", "darkneuss"));
+
+    // JavaScript		
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
 	<div id="container">
 		<header role="banner">
-			<h1><!-- <?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?> -->
-        DARKNE<span class="opaque">u</span>SS<span class="opaque">.de</span><span class="beta">beta</span>        
+			<h1>
+        <a href="/news">DARKNE<span class="opaque">u</span>SS<span class="opaque">.de</span></a><span class="beta">beta</span>
         <span class="slogan">Metal <span class="lightblue">&dagger;</span> Gothic <span class="lightblue">&dagger;</span> Neuss</span>
       </h1>
       
@@ -60,7 +81,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       
     </div>
     
-    <!-- http://book.cakephp.org/2.0/en/views.html -->
     <?php if ($this->fetch("sidebar")): ?>
     <aside class="sidebar">
       <?php echo $this->fetch("sidebar"); ?>
@@ -68,15 +88,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     <?php endif; ?>
 
     <footer>
-			<!-- <?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-      &middot; -->
       -
-      <?php echo $this->Html->link('Impressum', '/impressum'); ?>
+      <?php echo $this->Html->link('Impressum', '/impressum', array('rel' => 'noindex')); ?>
       -
       <?php echo $this->Html->link('Festival', '/festival'); ?>
       -

@@ -8,7 +8,7 @@ foreach ($events as $event) {
   printf("<article><ul class=\"dataset cols-2\"><li><small class=\"date\">%s</small> %s</li><li>%s, %s</li></ul></article>",
     date("d.m.Y", strtotime($event["Event"]["date"])),
     $event["Event"]["title"],
-    $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "index", "#" => $event["Location"]["id"])), $event["Location"]["town"]
+    $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "info", $event["Location"]["id"])), $event["Location"]["town"]
   );
   $currentMonth = strftime("%B", strtotime($event["Event"]["date"]));
 }
