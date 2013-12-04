@@ -13,7 +13,7 @@ class LocationsController extends AppController {
   
   public function info($id) {
     if (!$id) {
-      throw new NotFoundException(__("Es ist nicht klar, zu welcher Locations Infos angezeigt werden sollen."));
+      throw new NotFoundException(__("Es ist nicht klar, zu welcher Location Infos angezeigt werden sollen."));
     }
   
     //$location = $this->Location->findById($id);
@@ -24,7 +24,7 @@ class LocationsController extends AppController {
     if (!$location) {
       throw new NotFoundException(__("Die gesuchte Location wurde nicht gefunden."));
     }
-    $this->set("title_for_layout", "Location-Infos");
+    $this->set("title_for_layout", sprintf("Location-Infos: %s", $location["Location"]["name"]));
     $this->set("location", $location);
   }
   
@@ -36,4 +36,27 @@ class LocationsController extends AppController {
     $this->set("locations", $locations);
     $this->render("index"); // set index view to render
   }
+  
+  public function eintragen() {
+    $this->set("title_for_layout", "Location eintragen");
+    $this->_add();
+  }
+  
+  /**
+   * @link http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/part-two.html#adding-posts
+   * @link http://book.cakephp.org/2.0/en/models/saving-your-data.html#model-save-array-data-null-boolean-validate-true-array-fieldlist-array
+   */
+  protected function _add() {
+    if ($this->request->is("post")) {
+      //debug($this->request->data); return;
+      $this->Location->create();      
+      if ($this->Location->save($this->request->data, true, array("id", "name", "street", "plz", "town", "url"))) {
+        //$this->Session->setFlash(__("Die Location wurde gespeichert. Sie wird nach kurzer Prüfung freigeschaltet."));
+        return $this->redirect(array("action" => "index"));
+      }
+      debug($this->Location->validationErrors);
+      $this->Session->setFlash(__("Das Speichern der Location hat nicht geklappt."));
+    }
+    $this->render("add");
+  } 
 }

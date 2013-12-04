@@ -12,7 +12,7 @@ foreach ($locations as $location) {
     $location["Location"]["street"],
     $location["Location"]["plz"],
     $location["Location"]["town"],
-    $this->Html->link("info", array("controller" => "locations", "action" => "info", $location["Location"]["id"]))
+    $this->Html->link("i", array("controller" => "locations", "action" => "info", $location["Location"]["id"]), array("title" => "Info", "class" => "info text-shadow"))
   );
   $firstLetter = strtoupper(substr($location["Location"]["id"], 0, 1));
 }

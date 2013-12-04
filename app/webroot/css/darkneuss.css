@@ -24,6 +24,13 @@ a:hover {
   color: cyan;  
 }
 
+a.info {
+  color: #fff;
+  background-color: #3D5E7D;
+  padding: 0 7px;
+  border-radius: 5px;
+}
+
 h2 {
   background: none;
 }
@@ -46,51 +53,6 @@ h2 {
 
 .hide {
   display: none;
-}
-
-/* Tables & Lists */
-.dataset {
-  list-style-type: none;
-  overflow: hidden;  
-}
-
-.dataset li {
-  float: left;
-  color: #FFF;
-  line-height: 2;
-}
-
-article:target .dataset li {
-  background-color: #3D5E7D;
-}
-
-.clicklist h1 {
-  cursor: pointer;
-}
-
-.clicklist article {
-  display: none;
-}
-
-.clicklist article:target {
-  display: block;
-}
-
-/* Columns */
-ul.cols-1 li {
-  float: none;
-}
-
-ul.cols-2 li {
-  width: 50%;
-}
-
-ul.cols-3 li {
-  width: 33.3%;
-}
-
-ul.cols-4 li {
-  width: 25%;
 }
 
 /* Main Template */
@@ -192,11 +154,11 @@ article header p {
   color: #3D5E7D;
 }
 
-small.date {
+.date {
   /* color: #062136; */
   color: #fff;
   background-color: #3D5E7D;
-  padding: 2px;
+  padding: 2px 6px;
 }
 
 article p {
@@ -213,10 +175,45 @@ article p:first-child {
   clear: both;
 }
 
+article figure {
+  float: right;
+  padding-left: 1em;
+  margin: 4px 0;
+  max-width: 100%;
+  height: auto;
+}
+
+article figure figcaption {
+  color: #3D5E7D;
+  font-style: italic;
+  font-size: 80%;
+  text-align: center;
+}
+
+article figure img,
+article p img {
+  border: 1px solid #3D5E7D;
+  float: right;
+  max-width: 100%;
+  height: auto;
+}
+
+article + div.separator {
+  height: 4px;
+  background-color: #3D5E7D;
+  margin-bottom: 4px;
+}
+
 article footer {
+  clear: both;
   overflow: hidden;
   padding: 4px;
-  background-color: #3D5E7D;
+  background-color: #3D5E7D;  
+}
+
+article ul + footer,
+article p + footer {
+  margin-top: 1em;
 }
 
 article footer a {
@@ -250,6 +247,19 @@ table tr:nth-child(2n) {
   margin-left: 206px;
 }
 
+aside.sidebar h2 {
+  background: linear-gradient(to bottom, rgb(6, 33, 54), rgb(36, 63, 84)) repeat scroll 0% 0% #062136;
+  border: 1px solid #3D5E7D;
+  margin-bottom: 4px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 18px;
+  text-align: center;
+  padding: 4px;
+  min-height: 24px;
+}
+
 aside.sidebar {
   float: right;
   width: 202px;  
@@ -262,33 +272,131 @@ aside.sidebar section:first-child {
 aside.sidebar section {
   border: 1px solid #3D5E7D;
   background-color: #062136;
-  margin-top: 4px;
+  margin: 4px 0;
 }
 
-aside.sidebar section h2 {
-  background: linear-gradient(to bottom, rgb(6, 33, 54), rgb(36, 63, 84)) repeat scroll 0% 0% #062136;
-  border-bottom: 1px solid #3D5E7D;
-  margin-bottom: 0;
-  font-size: 18px;
-  color: inherit;
-  font-family: inherit;
-  font-size: 18px;
-  text-align: center;
+aside.sidebar section p {
   padding: 4px;
-  min-height: 24px;
+}
+
+/* Forms */
+form {
+  width: auto;
+}
+
+form label {
+  font-size: 100%;  
+}
+
+form .input {
+  color: white;
+}
+
+form .error {
+  background-color: indianred;
+}
+
+form .error, form .error-message {
+  color: white;
+}
+
+form .required {
+  font-weight: normal;
+}
+
+input, textarea {
+  padding: 0;
+  background-color: #122D42;
+  border: 1px solid #3D5E7D;
+  color: White;
+}
+
+.success, .message, .cake-error, .cake-debug, .notice, p.error, .error-message {
+  margin-bottom: 4px;
+}
+
+/* Tables & Lists */
+.dataset {
+  list-style-type: none;
+  overflow: hidden;  
+}
+
+.dataset li {
+  float: left;
+  color: #FFF;
+  line-height: 2;
+}
+
+article:target .dataset li {
+  background-color: #3D5E7D;
+}
+
+.clicklist h1 {
+  cursor: pointer;
+}
+
+.clicklist article {
+  display: none;
+}
+
+.clicklist article:target {
+  display: block;
+}
+
+/* Columns */
+ul.cols-1 li {
+  float: none;
+}
+
+ul.cols-2 li {
+  width: 50%;
+}
+
+ul.cols-3 li {
+  width: 33.3%;
+}
+
+ul.cols-4 li {
+  width: 25%;
 }
 
 /* Colors */
 .lightblue, .darkblue { color: #3D5E7D; }
 .opaque { color: rgba(255,255,255,0.5) }
 
+/* Page specifics */
+section.news article {
+  /* margin-bottom: 1rem; */
+}
+
+/* Social networks */
+.fb-comments {
+  margin-top: 1rem;
+}
+
+.fb-comments,
+.fb-comments span,
+.fb-comments span iframe
+{
+  width: 100% !important;
+}
+
+/* Media Queries */
 @media all and (max-width: 679px) {
+  body {
+    font-size: 80%;
+  }
+
   /* hide this elements */
   header h1 span.beta,
   header h1 span.slogan,
   table.cake-sql-log
   {
     display: none;
+  }
+  
+  #content h1 {
+    font-size: 18px;  
   }
 }
 
@@ -308,6 +416,10 @@ aside.sidebar section h2 {
   
   nav {
     /* margin-top: -19px; */
+  }
+  
+  #content h1 {
+    font-size: 16px;  
   }
 
   .hasSidebar {

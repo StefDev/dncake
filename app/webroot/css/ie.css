@@ -1,0 +1,7 @@
+header,
+nav,
+footer,
+aside,
+section {
+  display: block;
+}

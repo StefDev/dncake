@@ -48,12 +48,15 @@
   );
   
   Router::connect('/kalender', array('controller' => 'events', 'action' => 'index'));
+  Router::connect('/kalender/details/:id', array('controller' => 'events', 'action' => 'view'), array('id' => '[0-9]+'));
   
   Router::connect('/veroeffentlichungen', array('controller' => 'records', 'action' => 'index'));
   Router::connect('/veroeffentlichungen/alle', array('controller' => 'records', 'action' => 'alle'));
+  Router::connect('/veroeffentlichungen/eintragen', array('controller' => 'records', 'action' => 'eintragen'));
   
   Router::connect('/festival', array('controller' => 'pages', 'action' => 'display', 'festival'));
   Router::connect('/impressum', array('controller' => 'pages', 'action' => 'display', 'impressum'));
+  Router::connect('/soziale-netzwerke', array('controller' => 'pages', 'action' => 'display', 'soziale-netzwerke'));
 
 /**
  * my redirect routes

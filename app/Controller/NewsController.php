@@ -1,8 +1,17 @@
 <?php
 class NewsController extends AppController {
   public $helpers = array("Html", "Form");
-
+  public $components = array("Cookie");
+  
   public function index() {
+    // Cookie handling
+    if (isset($this->request->query["netzwerke"]) && preg_match("/^[0-1]{1}$/", $this->request->query["netzwerke"])) {
+      $this->Cookie->write("nw", $this->request->query["netzwerke"]);
+    }
+    $this->set("networks", array(
+      "activated" => $this->Cookie->read("nw") || 0,
+      "status" => array("de", null)
+    ));
     $this->set("news", $this->News->find("all", array(
       "conditions" => array("News.published" => "1"),
       "order" => array("News.created" => "DESC")
@@ -11,7 +20,7 @@ class NewsController extends AppController {
     $this->set("ogp", array(
       "title" => "News - DARKNEuSS.de",
       "type" => "website",
-      "url" => "/news"
+      "url" => "http://darkneuss.de/news"
     ));
   }
 
@@ -34,13 +43,13 @@ class NewsController extends AppController {
       array("visited")
     );
     
-    $this->set("entry", $news);
+    $this->set("entry", $news);    
     $this->set("title_for_layout", $news["News"]["title"]);
     $this->set("description", $news["News"]["description"]);
     $this->set("ogp", array(
       "title" => $news["News"]["title"],
       "type" => "article",
-      "url" => "/news/" . $news["News"]["url_id"],
+      "url" => "http://darkneuss.de/news/" . $news["News"]["url_id"],
     ));
   }
   

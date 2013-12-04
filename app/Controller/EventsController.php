@@ -9,7 +9,25 @@ class EventsController extends AppController {
     $this->set("events", $events);
   }
   
-  public function info() {
-    
+  public function view($id = null) {
+    $id = $this->request->params["id"];
+  
+    if (!$id) {
+      throw new NotFoundException(__("Ungültiger Kalendereintrag."));
+    }  
+    $event = $this->Event->find("first", array(
+      "conditions" => array("Event.id" => $id, "Event.confirmed" => 1)
+    ));
+    if (!$event) {
+      throw new NotFoundException(__("Kalendereintrag wurde nicht gefunden."));
+    }
+    $this->set("event", $event);
+    $this->set("title_for_layout", sprintf("%s (%s, %s)", $event["Event"]["title"], $event["Location"]["name"], date("d.m.Y", strtotime($event["Event"]["date"]))));
+    if ($event["Event"]["descr"]) { $this->set("description", $event["Event"]["descr"]); }
+    $this->set("ogp", array(
+      "title" => $event["Event"]["title"],
+      "type" => "article",
+      "url" => "http://darkneuss.de/kalender/details/" . $event["Event"]["id"]
+    ));
   }
 }

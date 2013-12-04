@@ -24,27 +24,27 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <head>
 	<!-- <?php echo $this->Html->charset(); ?> -->
   <meta charset="utf-8">
-  <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width")); ?>  
+  <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width, initial-scale=1")); ?>  
 	<title><?php echo $title_for_layout; ?> &ndash; DARKNEuSS.de</title>
 	<?php
     //echo $this->Html->meta('icon');
     
     // Meta Tags
     echo $this->fetch('meta');
-    
     if (isset($description)) {
       echo $this->Html->meta(array("name" => "Description", "content" => $description));
     }
     
     if (isset($ogp)) {
-      echo $this->Html->meta(array("property" => "og:title", "content" => $ogp["title"]));
-      echo $this->Html->meta(array("property" => "og:type", "content" => $ogp["type"]));
-      echo $this->Html->meta(array("property" => "og:url", "content" => "http://darkneuss.de" . $ogp["url"]));
+      foreach ($ogp as $property => $content) {
+        echo $this->Html->meta(array("property" => sprintf("og:%s", $property), "content" => $content));
+      }
+      // default values      
       echo $this->Html->meta(array("property" => "og:image", "content" => "http://darkneuss.de/img/fbdn.png"));
       echo $this->Html->meta(array("property" => "og:site_name", "content" => "DARKNEuSS.de"));
       echo $this->Html->meta(array("property" => "og:locale", "content" => "de_DE"));
       if (isset($description)) { echo $this->Html->meta(array("property" => "og:description", "content" => $description)); }
-      
+      // Twitter card
       echo $this->Html->meta(array("property" => "twitter:card", "content" => "summary"));
       echo $this->Html->meta(array("property" => "twitter:title", "content" => $ogp["title"]));
       if (isset($description)) { echo $this->Html->meta(array("property" => "twitter:description", "content" => $description)); }
@@ -57,14 +57,26 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     echo $this->Html->css(array("cake.generic", "darkneuss"));
 
     // JavaScript		
-		echo $this->fetch('script');
+		echo $this->fetch('script');    
 	?>
+  <!--[if lt IE 9]><?php echo $this->Html->css(array("ie")); ?><script src="http://devilschoice.de/javascript/html5shiv.js"></script><![endif]-->
 </head>
 <body>
+  <?php if (isset($nw) && $nw) { ?>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <?php } ?>
 	<div id="container">
 		<header role="banner">
 			<h1>
-        <a href="/news">DARKNE<span class="opaque">u</span>SS<span class="opaque">.de</span></a><span class="beta">beta</span>
+        <a href="/news">darkne<span class="opaque">u</span>ss<span class="opaque">.de</span></a><span class="beta">beta</span>
         <span class="slogan">Metal <span class="lightblue">&dagger;</span> Gothic <span class="lightblue">&dagger;</span> Neuss</span>
       </h1>
       

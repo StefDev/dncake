@@ -1,6 +1,7 @@
 <?php
 class RecordsController extends AppController {
-  public $helpers = array("Html", "Form");
+  public $helpers = array("Html", "Form", "Session");
+  public $components = array("Session");
   
   //public $title_for_layout = "Veröffentlichungen";  
   
@@ -19,10 +20,21 @@ class RecordsController extends AppController {
     $this->_all();
   }
   
-  public function add() { // http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/part-two.html#adding-posts
+  public function eintragen() {
+    $this->set("title_for_layout", "Veröffentlichung eintragen");
+    $this->_add();
+  }
+  
+  protected function _add() { // http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/part-two.html#adding-posts
     if ($this->request->is("post")) {
-      
+      $this->Record->create();
+      if ($this->Record->save($this->request->data, true, array("artist", "title", "releasedate"))) { // http://book.cakephp.org/2.0/en/models/saving-your-data.html#model-save-array-data-null-boolean-validate-true-array-fieldlist-array
+        $this->Session->setFlash(__("Die VÖ wurde gespeichert. Sie wird nach kurzer Prüfung freigeschaltet."));
+        return $this->redirect(array("action" => "index"));
+      }
+      $this->Session->setFlash(__("Das Speichern der VÖ hat nicht geklappt."));
     }
+    $this->render("add");
   }
   
   protected function _all() {

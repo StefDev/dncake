@@ -32,7 +32,20 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-  public $layout = "darkneuss";
-  
+  public $layout = "darkneuss";  
   public $helpers = array("Navigation");
+  public $components = array("Cookie");
+  
+  /**
+   * @link https://developers.facebook.com/docs/plugins/comments/ Facebook comments
+   */
+  public function beforeFilter() {
+    parent::beforeFilter();
+    // Cookie handling
+    $this->Cookie->name = "DNCookie";
+    $this->Cookie->time = 60 * 60 * 24 * 14; // 14 days
+    if ($this->Cookie->check("nw") && $this->Cookie->read("nw") === "1") {
+      $this->set("nw", 1);
+    }
+  }  
 }
