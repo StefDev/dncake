@@ -20,7 +20,7 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
 <head>
 	<!-- <?php echo $this->Html->charset(); ?> -->
   <meta charset="utf-8">
@@ -39,17 +39,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       foreach ($ogp as $property => $content) {
         echo $this->Html->meta(array("property" => sprintf("og:%s", $property), "content" => $content));
       }
-      // default values      
-      echo $this->Html->meta(array("property" => "og:image", "content" => "http://darkneuss.de/img/fbdn.png"));
+      // default values
       echo $this->Html->meta(array("property" => "og:site_name", "content" => "DARKNEuSS.de"));
       echo $this->Html->meta(array("property" => "og:locale", "content" => "de_DE"));
       if (isset($description)) { echo $this->Html->meta(array("property" => "og:description", "content" => $description)); }
-      // Twitter card
-      echo $this->Html->meta(array("property" => "twitter:card", "content" => "summary"));
-      echo $this->Html->meta(array("property" => "twitter:title", "content" => $ogp["title"]));
-      if (isset($description)) { echo $this->Html->meta(array("property" => "twitter:description", "content" => $description)); }
-      echo $this->Html->meta(array("property" => "twitter:image:src", "content" => "http://darkneuss.de/img/fbdn.png"));
-      echo $this->Html->meta(array("property" => "twitter:domain", "content" => "darkneuss.de"));
+      // Twitter card - https://dev.twitter.com/docs/cards/getting-started#open-graph
+      echo $this->Html->meta(array("name" => "twitter:card", "content" => "summary"));
+      echo $this->Html->meta(array("name" => "twitter:domain", "content" => "darkneuss.de"));
     }
 
     // Cascading Style Sheets

@@ -27,7 +27,8 @@ class EventsController extends AppController {
     $this->set("ogp", array(
       "title" => $event["Event"]["title"],
       "type" => "article",
-      "url" => "http://darkneuss.de/kalender/details/" . $event["Event"]["id"]
+      "url" => "http://darkneuss.de/kalender/details/" . $event["Event"]["id"],
+      "image" => "http://darkneuss.de/img/fbdn.png"
     ));
   }
 }

@@ -20,7 +20,8 @@ class NewsController extends AppController {
     $this->set("ogp", array(
       "title" => "News - DARKNEuSS.de",
       "type" => "website",
-      "url" => "http://darkneuss.de/news"
+      "url" => "http://darkneuss.de/news",
+      "image" => "http://darkneuss.de/img/fbdn.png"
     ));
   }
 
@@ -50,6 +51,7 @@ class NewsController extends AppController {
       "title" => $news["News"]["title"],
       "type" => "article",
       "url" => "http://darkneuss.de/news/" . $news["News"]["url_id"],
+      "image" => (isset($news["Image"]["id"])) ? sprintf("http://darkneuss.de/img/news/%s/%s.%s", substr($news["Image"]["timestamp"], 0, 4), $news["Image"]["filename"], $news["Image"]["ext"]) : "http://darkneuss.de/img/fbdn.png"
     ));
   }
   
