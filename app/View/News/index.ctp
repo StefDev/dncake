@@ -1,5 +1,9 @@
 <?php
 $this->start("sidebar");
+// Twitter
+echo "<h2>&ndash; Twitter &ndash;</h2>";
+echo "<section><p style=\"text-align: center\"><a href=\"http://twitter.com/DARKNEuSSde\">@DARKNEuSSde</a></p></section>";
+
 // Flyer
 echo "<h2>&ndash; Flyer &ndash;</h2>";
 echo "<section>";
@@ -11,6 +15,7 @@ printf("  <figure>%s</figure>",
   )
 );
 echo "</section>";
+
 // Soziale Netzwerke
 echo "<h2>&ndash; Soziale Netzwerke &ndash;</h2>";
 echo "<section>";

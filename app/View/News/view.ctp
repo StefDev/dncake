@@ -33,7 +33,10 @@
         "dark",
         "time"
       );
-    } ?>
+    } else {
+      printf("<div class=\"fb-comments\">%s <a href=\"%s\">%s</a></div>", "Facebook-Kommentare sind deaktiviert.", "/soziale-netzwerke", "Was bedeutet das?");
+    }    
+    ?>
     <footer>
       <?php echo $this->Html->link("&laquo; zurück zur News-Übersicht", array("controller" => "news", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>
       <?php echo $this->Html->link("diesen Artikel auf Facebook teilen &raquo;", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/news/" . $entry["News"]["url_id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>

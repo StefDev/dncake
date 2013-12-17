@@ -114,6 +114,7 @@ nav > ul > li a.active {
 #content {
   background: none;
   padding: 0;
+  color: #FFF;
 }
 
 #content h1 {
@@ -367,18 +368,22 @@ ul.cols-4 li {
 /* Page specifics */
 section.news article {
   /* margin-bottom: 1rem; */
+  overflow-y: hidden;
 }
 
 /* Social networks */
 .fb-comments {
-  margin-top: 1rem;
+  clear: both;
+  margin-top: 1em;
+  margin-bottom: 4px;  
+  background-color: #0C314E;
 }
 
 .fb-comments,
 .fb-comments span,
 .fb-comments span iframe
 {
-  width: 100% !important;
+  width: 100% !important;  
 }
 
 /* Media Queries */
@@ -397,6 +402,10 @@ section.news article {
   
   #content h1 {
     font-size: 18px;  
+  }
+  
+  aside.sidebar h2 {    
+    min-height: 0;
   }
 }
 

@@ -45,6 +45,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       if (isset($description)) { echo $this->Html->meta(array("property" => "og:description", "content" => $description)); }
       // Twitter card - https://dev.twitter.com/docs/cards/getting-started#open-graph
       echo $this->Html->meta(array("name" => "twitter:card", "content" => "summary"));
+      echo $this->Html->meta(array("name" => "twitter:site", "content" => "@DARKNEuSSde"));
       echo $this->Html->meta(array("name" => "twitter:domain", "content" => "darkneuss.de"));
     }
 
