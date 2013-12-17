@@ -1,0 +1,22 @@
+{
+  "name": "dncake",
+  "version": "0.1.0",
+  "description": "not yet",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StefDev/dncake"
+  },
+  "author": "Stefan Krieger",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/StefDev/dncake/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.7.0"
+  }  
+}
