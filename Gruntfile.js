@@ -19,4 +19,5 @@ module.exports = function(grunt) {
   
   // Default tasks
   grunt.registerTask('default', ['cssmin']);
+
 }

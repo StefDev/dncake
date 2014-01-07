@@ -2,7 +2,7 @@
 class News extends AppModel
 {
   //public $hasOne = "OpenGraph";
-  public $belongsTo = array('Author', 'Image');  
+  public $belongsTo = array('Author', 'Image');
 
   public function afterFind($results, $primary = false) {
     foreach ($results as $key => $value) {
@@ -28,6 +28,10 @@ class News extends AppModel
   }
   
   public function formatBodyText($bodyText) {
-    return preg_replace("/\r\n\r\n/", "</p><p>", $bodyText);
+    return preg_replace(
+      array("/\r\n\r\n/", "/\r\n/"),      // pattern
+      array("</p><p>", "<br>"),           // replacement
+      $bodyText                           // subject
+    );
   }
 }

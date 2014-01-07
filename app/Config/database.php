@@ -53,6 +53,7 @@
  * unix_socket =>
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
+
 include_once "dbconn.php";
  
 class DATABASE_CONFIG {

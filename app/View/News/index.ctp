@@ -1,19 +1,13 @@
 <?php
 $this->start("sidebar");
+// Dynamic Flyer
+echo $this->element('recent_flyer');
+
 // Twitter
 echo "<h2>&ndash; Twitter &ndash;</h2>";
-echo "<section><p style=\"text-align: center\"><a href=\"http://twitter.com/DARKNEuSSde\">@DARKNEuSSde</a></p></section>";
-
-// Flyer
-echo "<h2>&ndash; Flyer &ndash;</h2>";
 echo "<section>";
-printf("  <figure>%s</figure>",
-  $this->Html->image("/img/flyer/2013/holynightmare3.jpg", array(
-      "alt" => "Holy Nightmare 3", "width" => 200, "height" => 280,
-      "url" => array("controller" => "kalender", "action" => "details", 1003)
-    )
-  )
-);
+printf("<p style=\"text-align: center\">%s</p>", $this->Html->image('/img/template/twitter_logo_cyan.png', array('alt' => '@DARKNEuSS.de', 'url' => 'http://twitter.com/DARKNEuSSde')));
+printf("<p style=\"text-align: center\">%s</p>", $this->Html->link('@DARKNEuSSde', 'http://twitter.com/DARKNEuSSde'));
 echo "</section>";
 
 // Soziale Netzwerke

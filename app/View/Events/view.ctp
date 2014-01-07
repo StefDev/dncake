@@ -6,21 +6,27 @@
         <?php echo $event["Event"]["title"] ?>        
       </h2>
     </header>
+    <?php
+    // Image
+    if ($event["Image"]["id"]) {
+      echo "<figure>";
+      echo $this->Html->image(
+        sprintf("/img/flyer/%s/%s.%s", substr($event["Image"]["timestamp"], 0, 4), $event["Image"]["filename"], $event["Image"]["ext"]),
+        $event["Image"]["options"]
+      );
+      if ($event["Image"]["descr"]) {
+        printf("<figcaption>%s</figcaption>", $event["Image"]["descr"]);
+      }
+      echo "</figure>";
+    }
+    ?>
     <?php if (isset($event["Event"]["descr"])) { ?>    
     <p>
-      <?php
-        if ($event["Event"]["quotes"] == true && !preg_match("/^&bdquo;/", $event["Event"]["descr"])) {
-          echo "&bdquo;";
-        }
-        echo $event["Event"]["descr"];
-        if ($event["Event"]["quotes"] == true && !preg_match("/&rdquo;$/", $event["Event"]["descr"])) {
-          echo "&rdquo;";
-        }
-      ?>
+      <?php echo $event["Event"]["descr"]; ?>
     </p>
     <?php } ?>
     <?php if ($event["Event"]["soldout"]) { ?>    
-    <p><strong>Hinweis:</strong> Dieses Event ist ausverkauft!</p>
+    <p><strong>Hinweis:</strong> Dieses Event ist scheinbar ausverkauft.</p>
     <?php } ?>
     <footer>
       <?php echo $this->Html->link("&laquo; zurück zum Kalender", array("controller" => "events", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>

@@ -47,6 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       echo $this->Html->meta(array("name" => "twitter:card", "content" => "summary"));
       echo $this->Html->meta(array("name" => "twitter:site", "content" => "@DARKNEuSSde"));
       echo $this->Html->meta(array("name" => "twitter:domain", "content" => "darkneuss.de"));
+      //echo $this->Html->meta(array("name" => "twitter:creator", "content" => "@StefKrie"));
     }
 
     // Cascading Style Sheets
@@ -102,6 +103,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       -
       <?php echo $this->Html->link('Festival', '/festival'); ?>
       -
+      <?php echo $this->Html->link('Fotoalbum', 'http://picasaweb.google.com/darkneuss', array('target' => '_blank')); ?>
+      -
       <?php echo $this->Html->link('Archiv', '/archiv', array('target' => '_blank')); ?>
       -
 		</footer>
@@ -124,6 +127,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   </script>
   <noscript><p><img src="http://pwk.skww.de/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
   <!-- End Piwik Code -->
-  <?php } ?>
+  <?php } else { echo phpversion(); } ?>
 </body>
 </html>

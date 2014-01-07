@@ -35,6 +35,10 @@ h2 {
   background: none;
 }
 
+p {
+  margin: 0;
+}
+
 .text-shadow {
   text-shadow: 1px 1px 1px black;
 }
@@ -160,6 +164,7 @@ article header p {
   color: #fff;
   background-color: #3D5E7D;
   padding: 2px 6px;
+  border-radius: 5px;
 }
 
 article p {
@@ -361,6 +366,14 @@ ul.cols-4 li {
   width: 25%;
 }
 
+ul.cols-2-1 li:first-child {
+  width: 66.6%;
+}
+
+ul.cols-2-1 li {
+  width: 33.3%;
+}
+
 /* Colors */
 .lightblue, .darkblue { color: #3D5E7D; }
 .opaque { color: rgba(255,255,255,0.5) }
@@ -439,6 +452,10 @@ section.news article {
   .hasSidebar h1,
   .hasSidebar section {
     margin-left: 0;
+  }
+  
+  article figure {
+    padding-left: 0;
   }
   
   aside.sidebar {

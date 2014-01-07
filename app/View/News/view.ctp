@@ -12,7 +12,7 @@
       </p>
     </header>
     <?php
-    // image
+    // Image
     if ($entry["Image"]["id"]) {
       echo "<figure>";
       echo $this->Html->image(
