@@ -20,9 +20,9 @@
       echo "</figure>";
     }
     ?>
-    <?php if (isset($event["Event"]["descr"])) { ?>    
+    <?php if (isset($event["Event"]["descr_html"])) { ?>    
     <p>
-      <?php echo $event["Event"]["descr"]; ?>
+      <?php echo $event["Event"]["descr_html"]; ?>
     </p>
     <?php } ?>
     <?php if ($event["Event"]["soldout"]) { ?>    

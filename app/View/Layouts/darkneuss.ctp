@@ -47,7 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       echo $this->Html->meta(array("name" => "twitter:card", "content" => "summary"));
       echo $this->Html->meta(array("name" => "twitter:site", "content" => "@DARKNEuSSde"));
       echo $this->Html->meta(array("name" => "twitter:domain", "content" => "darkneuss.de"));
-      //echo $this->Html->meta(array("name" => "twitter:creator", "content" => "@StefKrie"));
+      echo $this->Html->meta(array("name" => "twitter:creator", "content" => "@StefKrie"));
     }
 
     // Cascading Style Sheets

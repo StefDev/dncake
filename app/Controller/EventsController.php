@@ -22,7 +22,7 @@ class EventsController extends AppController {
       throw new NotFoundException(__("Kalendereintrag wurde nicht gefunden."));
     }
     $this->set("event", $event);
-    $this->set("title_for_layout", sprintf("%s (%s, %s)", $event["Event"]["title"], $event["Location"]["name"], date("d.m.Y", strtotime($event["Event"]["date"]))));
+    $this->set("title_for_layout", sprintf("%s (%s, %s)", $event["Event"]["title"], date("d.m.Y", strtotime($event["Event"]["date"])), $event["Location"]["name"]));
     if ($event["Event"]["descr"]) { $this->set("description", $event["Event"]["descr"]); }
     $this->set("ogp", array(
       "title" => $event["Event"]["title"],

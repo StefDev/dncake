@@ -6,14 +6,14 @@ echo $this->element('recent_flyer');
 // Twitter
 echo "<h2>&ndash; Twitter &ndash;</h2>";
 echo "<section>";
-printf("<p style=\"text-align: center\">%s</p>", $this->Html->image('/img/template/twitter_logo_cyan.png', array('alt' => '@DARKNEuSS.de', 'url' => 'http://twitter.com/DARKNEuSSde')));
+printf("<p style=\"text-align: center\">%s</p>", $this->Html->image('/img/template/twitter_logo_cyan.png', array('width' => 90, 'height' => 73, 'alt' => '@DARKNEuSS.de', 'url' => 'http://twitter.com/DARKNEuSSde')));
 printf("<p style=\"text-align: center\">%s</p>", $this->Html->link('@DARKNEuSSde', 'http://twitter.com/DARKNEuSSde'));
 echo "</section>";
 
 // Soziale Netzwerke
 echo "<h2>&ndash; Soziale Netzwerke &ndash;</h2>";
 echo "<section>";
-printf("  <p>Soziale Netzwerke wie Facebook oder Twitter sind für diese Seite derzeit <strong>%saktiviert</strong>. <a href=\"/soziale-netzwerke\">Was bedeutet das?</a></p><p><a href=\"?netzwerke=%d\">&raquo; %saktivieren</a></p>", $networks["status"][$networks["activated"]], !$networks["activated"], $networks["status"][!$networks["activated"]]);
+printf("  <p>Soziale Netzwerke wie Facebook oder Google+ sind für diese Seite derzeit <strong>%saktiviert</strong>. <a href=\"/soziale-netzwerke\">Was bedeutet das?</a></p><p><a href=\"?netzwerke=%d\">&raquo; %saktivieren</a></p>", $networks["status"][$networks["activated"]], !$networks["activated"], $networks["status"][!$networks["activated"]]);
 echo "</section>";
 $this->end();
 
@@ -24,13 +24,19 @@ foreach ($news as $entry) {
   } else {
     $via = null;
   }
+  if ($entry["News"]["tweet_id"]) {    
+    $tweet_id = sprintf("&middot; <a class=\"icon twitter\" href=\"https://twitter.com/DARKNEuSSde/status/%s\" title=\"zum Tweet\"></a>", $entry["News"]["tweet_id"]);
+  } else {
+    $tweet_id = null;
+  }
   echo "<article>";
   // header
-  printf("<header><h2><small class=\"date\">%s</small>%s</h2><p><em>geschrieben von %s %s</em></p></header>",
+  printf("<header><h2><small class=\"date\">%s</small>%s</h2><p><em>geschrieben von %s %s %s</em></p></header>",
     date("d.m.Y", strtotime($entry["News"]["created"])),
     $this->Html->link($entry["News"]["title"], "/news/" . $entry["News"]["url_id"]),                 //$this->Html->link($entry["News"]["title"], array("controller" => "news", "action" => "view", $entry["News"]["url_id"])),
     $this->Html->link($entry["Author"]["name"], $entry["Author"]["url"], array("rel" => "author")),
-    $via    
+    $via,
+    $tweet_id
   );
   // image
   if ($entry["Image"]["id"]) {
