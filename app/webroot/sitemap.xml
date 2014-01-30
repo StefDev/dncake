@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>http://darkneuss.de/</loc>
+  </url>
+  <url>
+    <loc>http://darkneuss.de/news</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://darkneuss.de/news/alcest-shelter-hexvessel-the-fauns-gebaeude9-koeln</loc>
+    <lastmod>2014-01-22</lastmod>
+  </url>
+  <url>
+    <loc>http://darkneuss.de/kalender</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://darkneuss.de/veroeffentlichungen</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://darkneuss.de/bands</loc>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>http://darkneuss.de/locations</loc>
+    <priority>0.4</priority>
+  </url>
+</urlset>

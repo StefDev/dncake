@@ -3,7 +3,7 @@ setlocale(LC_TIME, "de_DE.utf8");
 echo "<section>";
 foreach ($events as $event) {
   if (!isset($currentMonth) || strftime("%B", strtotime($event["Event"]["date"])) != $currentMonth) {
-    printf("<h1>&ndash; %s %s &ndash;</h1>", strftime("%B", strtotime($event["Event"]["date"])), date("Y", strtotime($event["Event"]["date"])));
+    printf("<h1><span class=\"lightblue\">&ndash;</span> %s %s <span class=\"lightblue\">&ndash;</span></h1>", strftime("%B", strtotime($event["Event"]["date"])), date("Y", strtotime($event["Event"]["date"])));
   }
   if ($event["Event"]["image_id"]) {
     $flyer_tag = $this->Html->link("flyer", array("controller" => "kalender", "action" => "details", $event["Event"]["id"]), array("title" => "Flyer", "class" => "flyer text-shadow"));
@@ -21,3 +21,9 @@ foreach ($events as $event) {
 }
 echo "</section>";
 unset($event);
+?>
+<article>
+  <footer>
+    <?php echo $this->Html->link("Termin eintragen &raquo;", array("action" => "eintragen"), array("escape" => false, "class" => "float-right text-shadow")); ?>
+  </footer>
+</article>

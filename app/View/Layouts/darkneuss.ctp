@@ -24,7 +24,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <head>
 	<!-- <?php echo $this->Html->charset(); ?> -->
   <meta charset="utf-8">
-  <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width, initial-scale=1")); ?>  
+  <?php echo $this->Html->meta(array("name" => "viewport", "content" => "width=device-width, initial-scale=1")); ?>
+  <?php echo $this->Html->meta(array("name" => "google-site-verification", "content" => "9exXgcVkPy6Q0i4Q5NdLdL7IxCYhjiql0Uovwu6kX9o")); ?>
 	<title><?php echo $title_for_layout; ?> &ndash; DARKNEuSS.de</title>
 	<?php
     //echo $this->Html->meta('icon');
@@ -83,7 +84,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</header>
 		<div id="content"<?php if ($this->fetch("sidebar")) { echo " class=\"hasSidebar\""; } ?>>
     
-      <h1>&mdash; <?php echo $title_for_layout; ?> &mdash;</h1>
+      <h1><span class="lightblue">&mdash;</span> <?php echo $title_for_layout; ?> <span class="lightblue">&mdash;</span></h1>
       
       <?php echo $this->Session->flash(); ?>
 

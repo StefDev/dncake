@@ -28,6 +28,12 @@
     <?php if ($event["Event"]["soldout"]) { ?>    
     <p><strong>Hinweis:</strong> Dieses Event ist scheinbar ausverkauft.</p>
     <?php } ?>
+    <p class="dotted-overline lightblue"><strong>Links:</strong></p>
+    <p><span class="lightblue">&middot <?php printf("Location:</span> %s, %s", $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "info", $event["Location"]["id"])), $event["Location"]["town"]); ?></p>
+    <?php if($event["Event"]["fbevent_id"]) { ?>
+    <p><span class="lightblue">&middot <?php printf("Veranstaltung auf Facebook:</span> %s", $this->Html->link("https://www.facebook.com/events/" . $event["Event"]["fbevent_id"], "https://www.facebook.com/events/" . $event["Event"]["fbevent_id"])); ?></p>
+    <?php } ?>
+    </ul>
     <footer>
       <?php echo $this->Html->link("&laquo; zurück zum Kalender", array("controller" => "events", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>
       <?php echo $this->Html->link("diesen Termin auf Facebook teilen &raquo;", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/kalender/details/" . $event["Event"]["id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>

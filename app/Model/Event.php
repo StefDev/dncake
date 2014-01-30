@@ -2,6 +2,43 @@
 class Event extends AppModel {
   public $belongsTo = array('Location', 'Image');
   
+  public $validate = array(
+    "title" => array(
+      "rule" => "/^[\w\s\-]+$/",
+      "required" => true
+    ),
+    "fbevent_id" => array(
+      "rule" => "numeric",
+      "allowEmpty" => true,
+      "required" => false
+    ),
+    "date" => array(
+      "rule" => array("date", "ymd"),
+      "message" => "Das Datum stimmt so nicht.",
+      "required" => true
+    ),
+    "url" => array(
+      "rule" => "url",
+      "allowEmpty" => true,
+      "required" => false
+    ),
+    "location_id" => array(
+      "rule" => "/^[\w\-]+$/",
+      "required" => true
+    ),
+    "cat" => array(
+      "rule" => array("inList", array("Konzert", "Event", "Sonstiges")),      
+      "message" => "Bitte wähle eine Kategorie aus.",
+      "allowEmpty" => false,
+      "required" => true
+    ),
+    "platform" => array(
+      "rule" => array("inList", array("both", "dn", "sze")),
+      "message" => "Bitte wähle aus, wo dieser Termin veröffentlicht werden soll.",
+      "required" => true
+    )
+  );
+
   public function afterFind($results, $primary = false) {
     
     $results[0]["Event"]["descr_html"] = $this->formatBodyText($results[0]["Event"]["descr"]);

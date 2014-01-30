@@ -59,6 +59,18 @@ p {
   margin: 0;
 }
 
+.date {
+  /* color: #062136; */
+  color: #fff;
+  background-color: #3D5E7D;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+.dotted-overline {
+  border-top: 1px dotted #3D5E7D;
+}
+
 .text-shadow {
   text-shadow: 1px 1px 1px black;
 }
@@ -177,14 +189,6 @@ article header h2 small {
 
 article header p {
   color: #3D5E7D;
-}
-
-.date {
-  /* color: #062136; */
-  color: #fff;
-  background-color: #3D5E7D;
-  padding: 2px 6px;
-  border-radius: 5px;
 }
 
 article p {
@@ -315,6 +319,7 @@ form {
 }
 
 form label {
+  color: #3D5E7D;
   font-size: 100%;  
 }
 
@@ -334,8 +339,10 @@ form .required {
   font-weight: normal;
 }
 
-input, textarea {
-  padding: 0;
+input, select, textarea {
+  font-size: 100%;
+  font-family: inherit;
+  padding: 2px;
   background-color: #122D42;
   border: 1px solid #3D5E7D;
   color: White;

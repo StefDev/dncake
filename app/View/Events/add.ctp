@@ -1,19 +1,78 @@
 <article>
   <?php
   echo $this->Form->create("Event");
-  
-  echo $this->Form->input("artist", array(
-    "label" => "Künstler"
-  ));
+
   echo $this->Form->input("title", array(
-    "label" => "Titel"
+    "label" => "Titel der Veranstaltung",
+    "maxlength" => 50
   ));
-  echo $this->Form->input("releasedate", array(
-    "label" => "Veröffentlichungsdatum",
+
+  echo $this->Form->input("descr", array(
+    "label" => "Beschreibung",
+    "type" => "textarea",
+    "maxlength" => 1024
+  ));
+  
+  echo $this->Form->input("quotes", array(
+    "type" => "checkbox",
+    "label" => "Beschreibung als Zitat verÃ¶ffentlichen"
+  ));
+
+  echo $this->Form->input("date", array(
+    "label" => "Datum",
+    "div" => "input",
+    "type" => "date",
+    "dateFormat" => "DMY",
+    "minYear" => date("Y"),
+    "maxYear" => date("Y") + 1,
+    "separator" => ".",
+    "empty" => false,
+    "monthNames" => false
+    )
+  );
+
+  echo $this->Form->input("location_id", array(
     "type" => "text",
-    "placeholder" => date("d.m.Y"),
-    "maxlength" => 10
+    "label" => "Location",
+    "maxlength" => 16,
   ));
+
+  echo $this->Form->input("fbevent_id", array(
+    "type" => "text",
+    "label" => sprintf("Veranstaltungs-Nummer bei Facebook (z.B. https://www.facebook.com/events/%s)", $this->Html->link("63363207579", "https://www.facebook.com/events/63363207579")),
+    "maxlength" => 20,
+  ));
+
+  echo $this->Form->input("cat", array(
+    "label" => "Kategorie",
+    "div" => "input",
+    "type" => "select",    
+    "empty" => false,
+    "options" => array(
+      "Konzert" => "Konzert",
+      "Event" => "Event",
+      "Sonstiges" => "Sonstiges")
+    )
+  );
+
+  echo $this->Form->input("platform", array(
+    "label" => "VerÃ¶ffentlichung auf",
+    "div" => "input",
+    "type" => "select",
+    "empty" => false,
+    "options" => array(
+      "dn" => "DARKNEuSS.de",
+      "sze" => "Sze-NE.de",
+      "both" => "beiden")
+    )
+  );
+
+  echo $this->Form->input("url", array(
+    "label" => "Website",
+    "maxlength" => 128,
+    "required" => false
+  ));
+
   echo $this->Form->end("eintragen");
   ?>
   <footer>

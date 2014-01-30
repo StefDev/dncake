@@ -4,14 +4,14 @@ $this->start("sidebar");
 echo $this->element('recent_flyer');
 
 // Twitter
-echo "<h2>&ndash; Twitter &ndash;</h2>";
+echo "<h2><span class=\"lightblue\">&ndash;</span> Twitter <span class=\"lightblue\">&ndash;</span></h2>";
 echo "<section>";
 printf("<p style=\"text-align: center\">%s</p>", $this->Html->image('/img/template/twitter_logo_cyan.png', array('width' => 90, 'height' => 73, 'alt' => '@DARKNEuSS.de', 'url' => 'http://twitter.com/DARKNEuSSde')));
 printf("<p style=\"text-align: center\">%s</p>", $this->Html->link('@DARKNEuSSde', 'http://twitter.com/DARKNEuSSde'));
 echo "</section>";
 
 // Soziale Netzwerke
-echo "<h2>&ndash; Soziale Netzwerke &ndash;</h2>";
+echo "<h2><span class=\"lightblue\">&ndash;</span> Soziale Netzwerke <span class=\"lightblue\">&ndash;</span></h2>";
 echo "<section>";
 printf("  <p>Soziale Netzwerke wie Facebook oder Google+ sind für diese Seite derzeit <strong>%saktiviert</strong>. <a href=\"/soziale-netzwerke\">Was bedeutet das?</a></p><p><a href=\"?netzwerke=%d\">&raquo; %saktivieren</a></p>", $networks["status"][$networks["activated"]], !$networks["activated"], $networks["status"][!$networks["activated"]]);
 echo "</section>";
