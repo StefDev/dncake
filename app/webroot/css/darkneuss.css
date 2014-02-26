@@ -184,11 +184,24 @@ article header h2 {
 }
 
 article header h2 small {
-  float: right;
+  float: left;
+  margin-right: 0.5em;
 }
 
 article header p {
   color: #3D5E7D;
+}
+
+article.snippet header {
+  border-bottom: 0;
+}
+
+article.snippet header h2 {
+  margin-bottom: 0;
+}
+
+article.snippet header p {
+  display: none;
 }
 
 article p {
@@ -272,8 +285,8 @@ table tr:nth-child(2n) {
   float: left;
 }
 
-.hasSidebar h1,
-.hasSidebar section {
+.hasSidebar > h1,
+.hasSidebar > section {
   margin-left: 206px;
 }
 

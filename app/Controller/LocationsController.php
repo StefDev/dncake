@@ -34,6 +34,7 @@ class LocationsController extends AppController {
       "order" => array("Location.id ASC")
     ));
     $this->set("locations", $locations);
+    $this->set("description", "Auf die Stadt Neuss eingegrenzte Übersicht über Locations und Auftrittsmöglichkeiten.");
     $this->render("index"); // set index view to render
   }
   

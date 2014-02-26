@@ -1,10 +1,10 @@
 <?php
 class Event extends AppModel {
   public $belongsTo = array('Location', 'Image');
-  
+
   public $validate = array(
     "title" => array(
-      "rule" => "/^[\w\s\-]+$/",
+      "rule" => "/^[\wÄÖÜäöüß\s\-&]+$/",
       "required" => true
     ),
     "fbevent_id" => array(
@@ -71,9 +71,9 @@ class Event extends AppModel {
   
   public function formatBodyText($bodyText) {
     return preg_replace(
-      array("/\r\n\r\n/", "/\r\n/"),      // pattern
-      array("</p><p>", "<br>"),           // replacement
-      $bodyText                           // subject
+      array("/\r\n\r\n/", "/\r\n/"),          // pattern
+      array("</p><p>",    "<br>"),            // replacement
+      $bodyText                               // subject
     );
   }
 }

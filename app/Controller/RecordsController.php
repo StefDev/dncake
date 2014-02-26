@@ -13,6 +13,13 @@ class RecordsController extends AppController {
       )
     );
     $this->set("records", $records);
+    $this->set("description", "kommende Platten und weitere Veröffentlichungen");
+    $this->set("ogp", array(
+      "title" => "kommende Platten & weitere Veröffentlichungen",
+      "type" => "website",
+      "url" => "http://darkneuss.de/veroeffentlichungen",
+      "image" => "http://darkneuss.de/img/fbdn.png"
+    ));
   }
   
   public function alle() {

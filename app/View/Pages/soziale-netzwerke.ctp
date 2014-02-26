@@ -8,6 +8,6 @@
     dieser Netzwerke eingebunden. Da diese Daten an ihre Betreiber senden, müssen sie zunächst auf der <a href="/news">News</a>-Seite
     in der &bdquo;Soziale Netzwerke&rdquo;-Box aktiviert werden. So entscheidet ihr selbst, ob und welche Aktivitäten an diese Dienste übertragen werden.</p>
     
-    <p>Die Aktivierung wird für 14 Tage in einem Cookie gespeichert, damit ihr diese nicht bei jedem Seitenbesuch erneut treffen müsst.</p>
+    <p>Die Aktivierung wird für 14 Tage in einem Cookie gespeichert, damit ihr diese nicht bei jedem Seitenbesuch erneut vornehmen müsst.</p>
   </article>
 </section>

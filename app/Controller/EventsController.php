@@ -28,7 +28,7 @@ class EventsController extends AppController {
       "title" => $event["Event"]["title"],
       "type" => "article",
       "url" => "http://darkneuss.de/kalender/details/" . $event["Event"]["id"],
-      "image" => (isset($event["Image"]["id"])) ? sprintf("http://darkneuss.de/img/flyer/%s/%s.%s", substr($event["Image"]["timestamp"], 0, 4), $event["Image"]["filename"], $event["Image"]["ext"]) : "http://darkneuss.de/img/fbdn.png"
+      "image" => (isset($event["Image"]["id"])) ? sprintf("http://darkneuss.de/img/flyer/%s/%s.%s", substr($event["Image"]["timestamp"], 0, 4), $event["Image"]["filename"], $event["Image"]["ext"]) : ""
     ));
   }
   

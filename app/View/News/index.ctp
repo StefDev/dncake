@@ -18,19 +18,31 @@ echo "</section>";
 $this->end();
 
 echo "<section class=\"news\">";
-foreach ($news as $entry) {
+foreach ($news as $key => $entry) {
+  if ($key == 3) {
+    echo "<h1><span class=\"lightblue\">&mdash;</span> weitere Artikel auf DARKNEuSS.de: <span class=\"lightblue\">&mdash;</span></h1>";
+  }
+  
   if (!empty($entry["News"]["via"]) && !empty($entry["News"]["via_url"])) {
     $via = sprintf("(via %s)", $this->Html->link($entry["News"]["via"], $entry["News"]["via_url"]));
   } else {
     $via = null;
   }
+
   if ($entry["News"]["tweet_id"]) {    
     $tweet_id = sprintf("&middot; <a class=\"icon twitter\" href=\"https://twitter.com/DARKNEuSSde/status/%s\" title=\"zum Tweet\"></a>", $entry["News"]["tweet_id"]);
   } else {
     $tweet_id = null;
   }
-  echo "<article>";
-  // header
+
+  // Article start
+  if ($key < 3) {
+    echo "<article>";
+  } else {
+    echo "<article class=\"snippet\">";
+  }
+  
+  // Header
   printf("<header><h2><small class=\"date\">%s</small>%s</h2><p><em>geschrieben von %s %s %s</em></p></header>",
     date("d.m.Y", strtotime($entry["News"]["created"])),
     $this->Html->link($entry["News"]["title"], "/news/" . $entry["News"]["url_id"]),                 //$this->Html->link($entry["News"]["title"], array("controller" => "news", "action" => "view", $entry["News"]["url_id"])),
@@ -38,20 +50,25 @@ foreach ($news as $entry) {
     $via,
     $tweet_id
   );
-  // image
-  if ($entry["Image"]["id"]) {
-    echo "<figure>";
-    echo $this->Html->image(
-      sprintf("/img/news/%s/%s.%s", substr($entry["Image"]["timestamp"], 0, 4), $entry["Image"]["filename"], $entry["Image"]["ext"]),
-      $entry["Image"]["options"]
-    );
-    if ($entry["Image"]["descr"]) {
-      printf("<figcaption>%s</figcaption>", $entry["Image"]["descr"]);
+  
+  if ($key < 3) {
+    // Image
+    if ($entry["Image"]["id"]) {
+      echo "<figure>";
+      echo $this->Html->image(
+        sprintf("/img/news/%s/%s.%s", substr($entry["Image"]["timestamp"], 0, 4), $entry["Image"]["filename"], $entry["Image"]["ext"]),
+        $entry["Image"]["options"]
+      );
+      if ($entry["Image"]["descr"]) {
+        printf("<figcaption>%s</figcaption>", $entry["Image"]["descr"]);
+      }
+      echo "</figure>";
     }
-    echo "</figure>";
+    // Body content
+    printf("<p>%s</p>", $entry["News"]["body"]);
   }
-  // body content
-  printf("<p>%s</p>", $entry["News"]["body"]);
+  
+  // Article end
   echo "</article>";
 }
 echo "</section>";
