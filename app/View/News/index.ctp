@@ -30,23 +30,23 @@ foreach ($news as $key => $entry) {
   }
 
   if ($entry["News"]["tweet_id"]) {    
-    $tweet_id = sprintf("&middot; <a class=\"icon twitter\" href=\"https://twitter.com/DARKNEuSSde/status/%s\" title=\"zum Tweet\"></a>", $entry["News"]["tweet_id"]);
+    $tweet_id = sprintf("&middot; <a class=\"icon twitter\" itemprop=\"discussionUrl\" href=\"https://twitter.com/DARKNEuSSde/status/%s\" title=\"zum Tweet\"></a>", $entry["News"]["tweet_id"]);
   } else {
     $tweet_id = null;
   }
 
   // Article start
   if ($key < 3) {
-    echo "<article>";
+    echo "<article itemscope itemtype=\"http://schema.org/BlogPosting\">";
   } else {
-    echo "<article class=\"snippet\">";
+    echo "<article itemscope itemtype=\"http://schema.org/BlogPosting\" class=\"snippet\">";
   }
   
   // Header
-  printf("<header><h2><small class=\"date\">%s</small>%s</h2><p><em>geschrieben von %s %s %s</em></p></header>",
+  printf("<header><h2 itemprop=\"headline\"><small class=\"date\">%s</small>%s</h2><p><em>geschrieben von %s %s %s</em></p></header>",    
     date("d.m.Y", strtotime($entry["News"]["created"])),
-    $this->Html->link($entry["News"]["title"], "/news/" . $entry["News"]["url_id"]),                 //$this->Html->link($entry["News"]["title"], array("controller" => "news", "action" => "view", $entry["News"]["url_id"])),
-    $this->Html->link($entry["Author"]["name"], $entry["Author"]["url"], array("rel" => "author")),
+    $this->Html->link($entry["News"]["title"], "/news/" . $entry["News"]["url_id"], array("itemprop" => "url")),    //$this->Html->link($entry["News"]["title"], array("controller" => "news", "action" => "view", $entry["News"]["url_id"])),
+    $this->Html->link($entry["Author"]["name"], $entry["Author"]["url"], array("rel" => "author", "itemprop" => "author")),
     $via,
     $tweet_id
   );

@@ -11,6 +11,9 @@ class News extends AppModel
       }
       if (isset($value["Image"]["id"])) {
         $imgOpts = array();
+        // microdata
+        $imgOpts["itemprop"] = "image";
+
         if (isset($value["Image"]["title"])) {
           $imgOpts["alt"] = $value["Image"]["title"];
         }

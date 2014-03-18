@@ -2,13 +2,13 @@
 class Record extends AppModel {
   public $validate = array(
     "artist" => array(
-      "rule" => "/^[\w\s\-\.:ÄÖÜäöüß!$%&\/\(\)]{2,48}$/",
+      "rule" => "/^[\w\s\-\.,:ÄÖÜäöüß!$%&\/\(\)]{2,48}$/",
       "required" => true,
       "allowEmpty" => false,
       "message" => "Hier sind unerlaubte Zeichen enthalten"
     ),
     "title" => array(
-      "rule" => "/^[\w\s\-\.:ÄÖÜäöüß!$%&\/\(\)]{2,48}$/",
+      "rule" => "/^[\w\s\-\.,:ÄÖÜäöüß!$%&\/\(\)]{2,48}$/",
       "required" => true,
       "allowEmpty" => false,
       "message" => "Hier sind unerlaubte Zeichen enthalten"

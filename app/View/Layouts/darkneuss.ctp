@@ -128,6 +128,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   </script>
   <noscript><p><img src="http://pwk.skww.de/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
   <!-- End Piwik Code -->
-  <?php } else { echo phpversion(); } ?>
+  <?php } ?>
 </body>
 </html>

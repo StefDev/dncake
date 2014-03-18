@@ -5,7 +5,8 @@ class Event extends AppModel {
   public $validate = array(
     "title" => array(
       "rule" => "/^[\wÄÖÜäöüß\s\-&]+$/",
-      "required" => true
+      "required" => true,
+      "message" => "Hier sind unerlaubte Zeichen enthalten"
     ),
     "fbevent_id" => array(
       "rule" => "numeric",
@@ -27,7 +28,7 @@ class Event extends AppModel {
       "required" => true
     ),
     "cat" => array(
-      "rule" => array("inList", array("Konzert", "Event", "Sonstiges")),      
+      "rule" => array("inList", array("Konzert", "Event", "Festival", "Sonstiges")),      
       "message" => "Bitte wähle eine Kategorie aus.",
       "allowEmpty" => false,
       "required" => true

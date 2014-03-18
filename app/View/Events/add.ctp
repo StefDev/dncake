@@ -51,6 +51,7 @@
     "options" => array(
       "Konzert" => "Konzert",
       "Event" => "Event",
+      "Festival" => "Festival",
       "Sonstiges" => "Sonstiges")
     )
   );
@@ -72,6 +73,15 @@
     "maxlength" => 128,
     "required" => false
   ));
+  
+  if (Configure::read('debug')) {
+    echo $this->Form->input("image_id", array(
+      "label" => "Image-ID",
+      "type" => "text",
+      "maxlength" => 3,
+      "required" => false
+    ));
+  }
 
   echo $this->Form->end("eintragen");
   ?>
