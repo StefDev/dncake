@@ -27,7 +27,18 @@ class Location extends AppModel {
     "town" => "notEmpty",
     "url" => array(
       "rule" => "url",
+      "allowEmpty" => true,
       "required" => false
+    ),
+    "latitude" => array(
+      "rule" => "decimal",
+      "required" => false,
+      "allowEmpty" => true
+    ),
+    "longitude" => array(
+      "rule" => "decimal",
+      "required" => false,
+      "allowEmpty" => true  
     )
   );
 

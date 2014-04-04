@@ -24,11 +24,11 @@ class NavigationHelper extends AppHelper {
       "url"   => array("controller" => "records", "action" => "index"),
       "external" => false
     ),
-    array(
+    /* array(
       "title" => "Bands",
       "url"   => array("controller" => "bands", "action" => "index"),
       "external" => false
-    ),
+    ), */
     array(
       "title" => "Locations",
       "url" => array("controller" => "locations", "action" => "index"),

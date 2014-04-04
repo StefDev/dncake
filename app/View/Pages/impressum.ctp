@@ -1,9 +1,10 @@
 <section>
   <article>
+    <figure><a href="http://www.flickr.com/photos/stefkrie/" target="_blank"><img src="/img/stf.jpg" width="320" height="240" alt=""></a></figure>
     <p><strong>DARKNEuSS.de</strong> wird zur Verfügung gestellt von</p>
     <p>
       Stefan Krieger<br>
-      Schillerstraße 63<br>
+      Uhlandstraße 35<br>
       41464 Neuss
     </p>
     <p>

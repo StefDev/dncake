@@ -4,7 +4,7 @@ class Event extends AppModel {
 
   public $validate = array(
     "title" => array(
-      "rule" => "/^[\wÄÖÜäöüß\s\-&]+$/",
+      "rule" => "/^[\wÄÖÜäöüß\s\-\.\,\!&]+$/",
       "required" => true,
       "message" => "Hier sind unerlaubte Zeichen enthalten"
     ),

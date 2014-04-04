@@ -10,7 +10,7 @@ class LocationsController extends AppController {
     ));
     $this->set("locations", $locations);
   }
-  
+
   public function info($id) {
     if (!$id) {
       throw new NotFoundException(__("Es ist nicht klar, zu welcher Location Infos angezeigt werden sollen."));
@@ -26,6 +26,21 @@ class LocationsController extends AppController {
     }
     $this->set("title_for_layout", sprintf("Location-Infos: %s", $location["Location"]["name"]));
     $this->set("location", $location);
+  }
+  
+  public function karte() {
+    $this->set("title_for_layout", "Karte");
+    $this->_map();
+  }
+  
+  protected function _map() {    
+    $locations = $this->Location->find("all", array(
+      "conditions" => array("Location.id !=" => "noloc"),
+      "fields" => array("id", "name", "street", "plz", "town", "url", "latitude", "longitude"),
+      "order" => array("Location.id ASC")
+    ));
+    $this->set("locations", $locations);
+    $this->render("map");
   }
   
   public function neuss() {
@@ -51,7 +66,7 @@ class LocationsController extends AppController {
     if ($this->request->is("post")) {
       //debug($this->request->data); return;
       $this->Location->create();      
-      if ($this->Location->save($this->request->data, true, array("id", "name", "street", "plz", "town", "url"))) {
+      if ($this->Location->save($this->request->data, true, array("id", "name", "street", "plz", "town", "latitude", "longitude", "url"))) {
         //$this->Session->setFlash(__("Die Location wurde gespeichert. Sie wird nach kurzer Prüfung freigeschaltet."));
         return $this->redirect(array("action" => "index"));
       }

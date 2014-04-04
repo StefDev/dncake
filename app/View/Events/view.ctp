@@ -22,13 +22,13 @@
     <?php if ($event["Event"]["soldout"]) { ?>    
     <p><strong>Hinweis:</strong> Dieses Event ist scheinbar ausverkauft.</p>
     <?php } ?>
-    <p class="dotted-overline"><span class="lightblue">&middot; <?php printf("Datum:</span> %s", date("d.m.Y", strtotime($event["Event"]["date"]))); ?></p>
-    <p><span class="lightblue">&middot; <?php printf("Location:</span> %s, %s", $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "info", $event["Location"]["id"])), $event["Location"]["town"]); ?></p>
+    <p class="dotted-overline"><span class="lightblue"><?php printf("Wann?</span> %s", date("d.m.Y", strtotime($event["Event"]["date"]))); ?></p>
+    <p><span class="lightblue"><?php printf("Wo?</span> %s, %s", $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "info", $event["Location"]["id"])), $event["Location"]["town"]); ?></p>
     <?php if ($event["Event"]["fbevent_id"]) { ?>
-    <p><span class="lightblue">&middot; <?php printf("Veranstaltung auf Facebook:</span> %s", $this->Html->link("https://www.facebook.com/events/" . $event["Event"]["fbevent_id"], "https://www.facebook.com/events/" . $event["Event"]["fbevent_id"])); ?></p>
+    <p><span class="lightblue"><?php printf("Veranstaltung auf Facebook:</span> %s", $this->Html->link("https://www.facebook.com/events/" . $event["Event"]["fbevent_id"], "https://www.facebook.com/events/" . $event["Event"]["fbevent_id"])); ?></p>
     <?php } ?>
     <?php if ($event["Event"]["tweet_id"]) { ?>
-    <p><span class="lightblue">&middot; <?php printf("Tweet:</span> %s", $this->Html->link("https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"], "https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"])); ?></p>
+    <p><span class="lightblue"><?php printf("Tweet:</span> %s", $this->Html->link("https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"], "https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"])); ?></p>
     <?php } ?>
     </ul>
     <footer>

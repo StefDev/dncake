@@ -76,7 +76,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<header role="banner">
 			<h1>
         <a href="/news">darkne<span class="opaque">u</span>ss<span class="opaque">.de</span></a><span class="beta">beta</span>
-        <span class="slogan">Metal <span class="lightblue">&dagger;</span> Gothic <span class="lightblue">&dagger;</span> Neuss</span>
+        <span class="slogan">Metal <span class="lightblue dagger">&dagger;</span><br> Gothic <span class="lightblue dagger">&dagger;</span><br> Neuss</span>
       </h1>
       
       <?php echo $this->Navigation->main(); ?>
@@ -100,13 +100,15 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
     <footer>
       -
-      <?php echo $this->Html->link('Impressum', '/impressum', array('rel' => 'noindex')); ?>
+      <?php echo $this->Html->link('Bands', '/bands'); ?>
       -
       <?php echo $this->Html->link('Festival', '/festival'); ?>
       -
       <?php echo $this->Html->link('Fotoalbum', 'http://picasaweb.google.com/darkneuss', array('target' => '_blank')); ?>
       -
       <?php echo $this->Html->link('Archiv', '/archiv', array('target' => '_blank')); ?>
+      -
+      <?php echo $this->Html->link('Impressum', '/impressum', array('rel' => 'noindex')); ?>
       -
 		</footer>
 	</div>
