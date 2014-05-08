@@ -54,6 +54,7 @@ class Event extends AppModel {
     
     if (isset($results[0]["Image"]["id"])) {
       $imgOpts = array();
+      $imgOpts["itemprop"] = "image";
       if (isset($results[0]["Image"]["title"])) {
         $imgOpts["alt"] = $results[0]["Image"]["title"];
       }

@@ -15,20 +15,20 @@
     }
     ?>
     <?php if (isset($event["Event"]["descr_html"])) { ?>    
-    <p>
+    <p itemprop="description">
       <?php echo $event["Event"]["descr_html"]; ?>
     </p>
     <?php } ?>
     <?php if ($event["Event"]["soldout"]) { ?>    
     <p><strong>Hinweis:</strong> Dieses Event ist scheinbar ausverkauft.</p>
     <?php } ?>
-    <p class="dotted-overline"><span class="lightblue"><?php printf("Wann?</span> %s", date("d.m.Y", strtotime($event["Event"]["date"]))); ?></p>
-    <p><span class="lightblue"><?php printf("Wo?</span> %s, %s", $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "info", $event["Location"]["id"])), $event["Location"]["town"]); ?></p>
+    <p class="dotted-overline"><a class="icon clock" title="Datum"></a> <time itemprop="startDate" datetime="<?php echo $event["Event"]["date"]; ?>"><?php printf("%s", date("d.m.Y", strtotime($event["Event"]["date"]))); ?></time></p>
+    <p><a href="/locations/karte#<?php echo $event["Location"]["id"]; ?>" class="icon map" title="Location"></a> <span itemprop="location"><?php printf("%s, %s", $this->Html->link($event["Location"]["name"], array("controller" => "locations", "action" => "info", $event["Location"]["id"])), $event["Location"]["town"]); ?></span></p>
     <?php if ($event["Event"]["fbevent_id"]) { ?>
-    <p><span class="lightblue"><?php printf("Veranstaltung auf Facebook:</span> %s", $this->Html->link("https://www.facebook.com/events/" . $event["Event"]["fbevent_id"], "https://www.facebook.com/events/" . $event["Event"]["fbevent_id"])); ?></p>
+    <p><a class="icon fbevent" title="Veranstaltung auf Facebook"></a> <?php printf("%s", $this->Html->link("https://www.facebook.com/events/" . $event["Event"]["fbevent_id"], "https://www.facebook.com/events/" . $event["Event"]["fbevent_id"])); ?></p>
     <?php } ?>
     <?php if ($event["Event"]["tweet_id"]) { ?>
-    <p><span class="lightblue"><?php printf("Tweet:</span> %s", $this->Html->link("https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"], "https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"])); ?></p>
+    <p><a class="icon twitter" title="Tweet"></a> <?php printf("%s", $this->Html->link("https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"], "https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"])); ?></p>
     <?php } ?>
     </ul>
     <footer>
