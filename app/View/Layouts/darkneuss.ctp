@@ -54,9 +54,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     // Cascading Style Sheets
 		echo $this->fetch('css');
     echo $this->Html->css(array("cake.generic", "darkneuss"));
-
-    // JavaScript		
-		echo $this->fetch('script');    
 	?>
   <!--[if lt IE 9]><?php echo $this->Html->css(array("ie")); ?><script src="http://devilschoice.de/javascript/html5shiv.js"></script><![endif]-->
 </head>
@@ -75,16 +72,16 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 		<header role="banner">
 			<h1>
-        <a href="/news">darkne<span class="opaque">u</span>ss<span class="opaque">.de</span></a><span class="beta">beta</span>
+        <a href="/news">darkne<span class="opaque">u</span>ss<span class="opaque">.de</span></a>
         <span class="slogan">Metal <span class="lightblue dagger">&dagger;</span><br> Gothic <span class="lightblue dagger">&dagger;</span><br> Neuss</span>
       </h1>
       
       <?php echo $this->Navigation->main(); ?>
 
 		</header>
-		<div id="content"<?php if ($this->fetch("sidebar")) { echo " class=\"hasSidebar\""; } ?>>
+		<div id="content"<?php if(isset($schema_type)) { echo " itemscope itemtype=\"http://schema.org/$schema_type\""; } ?><?php if ($this->fetch("sidebar")) { echo " class=\"hasSidebar\""; } ?>>
     
-      <h1><span class="lightblue">&mdash;</span> <?php echo $title_for_layout; ?> <span class="lightblue">&mdash;</span></h1>
+      <h1 itemprop="name"><span class="lightblue">&mdash;</span> <?php echo $title_for_layout; ?> <span class="lightblue">&mdash;</span></h1>
       
       <?php echo $this->Session->flash(); ?>
 
@@ -102,6 +99,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       -
       <?php echo $this->Html->link('Bands', '/bands'); ?>
       -
+      <?php echo $this->Html->link('Karte', '/locations/karte'); ?>
+      -
+      <?php echo $this->Html->link('Facebook', 'http://www.facebook.com/darkneuss.de'); ?>
+      -
       <?php echo $this->Html->link('Festival', '/festival'); ?>
       -
       <?php echo $this->Html->link('Fotoalbum', 'http://picasaweb.google.com/darkneuss', array('target' => '_blank')); ?>
@@ -113,6 +114,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</footer>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
+  <?php echo $this->fetch('script'); ?>
   <?php if (Configure::read('debug') == 0) { ?>
   <!-- Piwik -->
   <script type="text/javascript"> 
