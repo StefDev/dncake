@@ -1,10 +1,11 @@
 <?php
 class Event extends AppModel {
+
   public $belongsTo = array('Location', 'Image');
 
   public $validate = array(
     "title" => array(
-      "rule" => "/^[\wÄÖÜäöüß\s\-\.\,\!&]+$/",
+      "rule" => "/^[\w\sÄÖÜäöüß\-+\.\,\!&:()]+$/",
       "required" => true,
       "message" => "Hier sind unerlaubte Zeichen enthalten"
     ),
@@ -78,4 +79,5 @@ class Event extends AppModel {
       $bodyText                               // subject
     );
   }
+
 }

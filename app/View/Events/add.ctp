@@ -10,7 +10,7 @@
   echo $this->Form->input("descr", array(
     "label" => "Beschreibung",
     "type" => "textarea",
-    "maxlength" => 1024
+    "maxlength" => 4096
   ));
   
   echo $this->Form->input("quotes", array(

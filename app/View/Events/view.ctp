@@ -29,8 +29,7 @@
     <?php } ?>
     <?php if ($event["Event"]["tweet_id"]) { ?>
     <p><a class="icon twitter" title="Tweet"></a> <?php printf("%s", $this->Html->link("https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"], "https://twitter.com/DARKNEuSSde/status/" . $event["Event"]["tweet_id"])); ?></p>
-    <?php } ?>
-    </ul>
+    <?php } ?>    
     <footer>
       <?php echo $this->Html->link("&laquo; zurück zum Kalender", array("controller" => "events", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>
       <?php echo $this->Html->link("diesen Termin auf Facebook teilen &raquo;", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/kalender/details/" . $event["Event"]["id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>

@@ -1,5 +1,6 @@
 <?php
 class EventsController extends AppController {
+
   public function index() {
     $events = $this->Event->find("all", array(
       "conditions" => array("Event.date >=" => date("Y-m-d"), "Event.platform !=" => "sze", "Event.confirmed" => "1"),
@@ -21,15 +22,18 @@ class EventsController extends AppController {
     if (!$event) {
       throw new NotFoundException(__("Kalendereintrag wurde nicht gefunden."));
     }
+
     $this->set("event", $event);
     $this->set("title_for_layout", sprintf("%s", $event["Event"]["title"]));
     $this->set("schema_type", "Event");
+
     if ($event["Event"]["descr"]) { $this->set("description", $event["Event"]["descr"]); }
+
     $this->set("ogp", array(
       "title" => $event["Event"]["title"],
       "type" => "article",
       "url" => "http://darkneuss.de/kalender/details/" . $event["Event"]["id"],
-      "image" => (isset($event["Image"]["id"])) ? sprintf("http://darkneuss.de/img/flyer/%s/%s.%s", substr($event["Image"]["timestamp"], 0, 4), $event["Image"]["filename"], $event["Image"]["ext"]) : ""
+      "image" => (isset($event["Image"]["id"])) ? sprintf("http://darkneuss.de/img/flyer/%s/%s.%s", substr($event["Image"]["timestamp"], 0, 4), $event["Image"]["filename"], $event["Image"]["ext"]) : "http://darkneuss.de/img/social-networks/facebook-kalender.png"
     ));
   }
 
@@ -60,4 +64,5 @@ class EventsController extends AppController {
     }
     $this->render("add");
   }
+
 }
