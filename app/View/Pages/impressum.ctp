@@ -17,5 +17,9 @@
     <p>
       <strong>DARKNEuSS.de</strong> basiert auf <a href="http://www.cakephp.org" class="icon-cake">CakePHP</a>, einem &bdquo;kuchenartigen&rdquo; PHP-Framework. Es wird unter der <a href="/LICENSE.txt">MIT License</a> veröffentlicht.
     </p>
+    <p>
+      In seiner derzeitigen Ausprägung ist <strong>DARKNEuSS.de</strong> als Blog konzipiert. Von Gastautoren eingereichte Artikel, Termine, Bandportraits oder Veröffentlichungstermine
+      werden <em>jederzeit</em> gerne entgegengenommen und bei Relevanz für die Seite aufbereitet.
+    </p>
   </article>
 </section>
