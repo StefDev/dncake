@@ -38,7 +38,7 @@ class Location extends AppModel {
     "longitude" => array(
       "rule" => "decimal",
       "required" => false,
-      "allowEmpty" => true  
+      "allowEmpty" => true
     )
   );
 
