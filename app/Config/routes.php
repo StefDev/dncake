@@ -47,6 +47,8 @@
     array('url_id' => '[\w-]+')
   );
   
+  Router::connect('/bands/:id', array('controller' => 'bands', 'action' => 'view'));
+  
   Router::connect('/kalender', array('controller' => 'events', 'action' => 'index'));
   Router::connect('/kalender/details/:id', array('controller' => 'events', 'action' => 'view'), array('id' => '[0-9]+'));
   
@@ -56,6 +58,7 @@
   
   Router::connect('/festival', array('controller' => 'pages', 'action' => 'display', 'festival'));
   Router::connect('/impressum', array('controller' => 'pages', 'action' => 'display', 'impressum'));
+  Router::connect('/vorlage', array('controller' => 'pages', 'action' => 'display', 'vorlage'));
   Router::connect('/soziale-netzwerke', array('controller' => 'pages', 'action' => 'display', 'soziale-netzwerke'));
 
 /**

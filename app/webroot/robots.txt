@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /impressum
+Disallow: /vorlage
 
 Sitemap: http://darkneuss.de/sitemap.xml
