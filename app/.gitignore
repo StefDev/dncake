@@ -10,4 +10,5 @@ View/Records/all.ctp
 webroot/apps/
 webroot/css/cake.generic.css
 webroot/img/template/dn_?o*
+\.idea
 !empty
