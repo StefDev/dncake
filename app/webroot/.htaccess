@@ -1,12 +1,16 @@
+Options +ExecCGI
+AddHandler cgi-script .cgi .py
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteRule ^sitemap\.xml$ sitemap.py [L]
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
 
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/xml
 </IfModule>
 
 <IfModule mod_expires.c>
