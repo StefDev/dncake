@@ -4,7 +4,7 @@
       <p>
         <em>geschrieben von <?php echo $this->Html->link($entry["Author"]["name"], $entry["Author"]["url"], array("rel" => "author")) ?>
         <?php if (!empty($entry["News"]["via"]) && !empty($entry["News"]["via_url"])) { printf("(via %s)", $this->Html->link($entry["News"]["via"], $entry["News"]["via_url"])); } ?>
-        <?php echo date("\a\m d.m.Y \u\m H:i \U\h\r", strtotime($entry["News"]["created"])); ?>
+        <?php echo date("\a\m d.m.Y \u\m H:i \U\h\\r", strtotime($entry["News"]["created"])); ?>
         </em>
       </p>
     </header>

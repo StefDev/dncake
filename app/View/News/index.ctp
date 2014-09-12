@@ -1,7 +1,10 @@
 <?php
 $this->start("sidebar");
 // Dynamic Flyer
-echo $this->element('recent_flyer');
+//echo $this->element('recent_flyer');
+
+// Upcoming Events
+echo $this->element('upcoming_events');
 
 // Twitter
 echo "<h2><span class=\"lightblue\">&ndash;</span> Twitter <span class=\"lightblue\">&ndash;</span></h2>";
@@ -13,7 +16,7 @@ echo "</section>";
 // Soziale Netzwerke
 echo "<h2><span class=\"lightblue\">&ndash;</span> Soziale Netzwerke <span class=\"lightblue\">&ndash;</span></h2>";
 echo "<section>";
-printf("  <p>Soziale Netzwerke wie Facebook oder Google+ sind für diese Seite derzeit <strong>%saktiviert</strong>. <a href=\"/soziale-netzwerke\">Was bedeutet das?</a></p><p><a href=\"?netzwerke=%d\">&raquo; %saktivieren</a></p>", $networks["status"][$networks["activated"]], !$networks["activated"], $networks["status"][!$networks["activated"]]);
+printf("  <p>Soziale Netzwerke wie Facebook oder Google+ sind für diese Seite derzeit <strong>%saktiviert</strong>. <a href=\"/soziale-netzwerke\">Was bedeutet das?</a></p><p><a href=\"?netzwerke=%d\" class=\"info text-shadow\">&raquo; %saktivieren</a></p>", $networks["status"][$networks["activated"]], !$networks["activated"], $networks["status"][!$networks["activated"]]);
 echo "</section>";
 $this->end();
 

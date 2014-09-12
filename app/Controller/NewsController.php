@@ -16,7 +16,7 @@ class NewsController extends AppController {
       "conditions" => array("News.published" => "1"),
       "order" => array("News.created" => "DESC")
     )));
-    $this->set("description", "DARKNEuSS.de ist wieder da! Erfahrt alles Aktuelle rund um unsere Dreifaltigkeitsbegriffe 'Metal', 'Gothic' und 'Neuss'.");
+    $this->set("description", "DARKNEuSS.de ist wieder da! Erfahrt alles Aktuelle rund um unsere &bdquo;Dreifaltigkeitsbegriffe&rdquo; Metal, Gothic und Neuss.");
     $this->set("ogp", array(
       "title" => "News - DARKNEuSS.de",
       "type" => "website",
