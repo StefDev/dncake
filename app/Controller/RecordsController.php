@@ -35,7 +35,7 @@ class RecordsController extends AppController {
   protected function _add() { // http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/part-two.html#adding-posts
     if ($this->request->is("post")) {
       $this->Record->create();
-      if ($this->Record->save($this->request->data, true, array("artist", "title", "releasedate"))) { // http://book.cakephp.org/2.0/en/models/saving-your-data.html#model-save-array-data-null-boolean-validate-true-array-fieldlist-array
+      if ($this->Record->save($this->request->data, true, array("artist", "artist_twitter", "title", "releasedate", "medium"))) { // http://book.cakephp.org/2.0/en/models/saving-your-data.html#model-save-array-data-null-boolean-validate-true-array-fieldlist-array
         $this->Session->setFlash(__("Die VÖ wurde gespeichert. Sie wird nach kurzer Prüfung freigeschaltet."));
         return $this->redirect(array("action" => "index"));
       }

@@ -4,7 +4,7 @@
   <?php printf("<span class=\"date\">%s</span>", date("d.m.Y", strtotime($record["Record"]["releasedate"]))) ?>
   <?php
     printf(
-      "%s &ndash; &bdquo;%s&rdquo;",
+      "%s <span class=\"lightblue\">&ndash;</span> &bdquo;%s&rdquo;",
       $record["Record"]["artist"],
       $record["Record"]["title"]
       //$this->Html->link($record["Record"]["title"], array("controller" => "records", "action" => "details", $record["Record"]["id"]))

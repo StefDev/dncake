@@ -2,13 +2,19 @@
 class Record extends AppModel {
   public $validate = array(
     "artist" => array(
-      "rule" => "/^[\w\s\-\.,:ÄÖÜäöüß!$%&\/\(\)]{2,48}$/",
+      "rule" => "/^[\w\s\-\.,:Ã„Ã–ÃœÃ¤Ã¶Ã¼ÃŸ!$%&\/\(\)]{2,48}$/",
       "required" => true,
       "allowEmpty" => false,
       "message" => "Hier sind unerlaubte Zeichen enthalten"
     ),
+    "artist_twitter" => array(
+      "rule" => "/^@[\w]{1,24}$/",
+      "required" => false,
+      "allowEmpty" => true,
+      "message" => "Sicher, dass dieser Twitter-Account existiert?"
+    ),
     "title" => array(
-      "rule" => "/^[\w\s\-\.,:ÄÖÜäöüß!$%&\/\(\)]{2,48}$/",
+      "rule" => "/^[\w\s\-\.,:Ã„Ã–ÃœÃ¤Ã¶Ã¼ÃŸ!$%&#\/\(\)]{2,48}$/",
       "required" => true,
       "allowEmpty" => false,
       "message" => "Hier sind unerlaubte Zeichen enthalten"
@@ -17,8 +23,14 @@ class Record extends AppModel {
       "rule" => array("date", "dmy"),
       "required" => true,
       "allowEmpty" => false,
-      "message" => "Bitte korrigiere das Datum der Veröffentlichung"
-    )
+      "message" => "Bitte korrigiere das Datum der VerÃ¶ffentlichung"
+    ),
+    "medium" => array(
+      "rule" => array("inList", array("cd", "dvd", "mag", "book")),      
+      "message" => "Bitte wÃ¤hle das Medium aus.",
+      "allowEmpty" => false,
+      "required" => true
+    ),
   );
   
   public function afterValidate() {
@@ -27,6 +39,7 @@ class Record extends AppModel {
   
   public function beforeSave() {
     $this->data["Record"]["releasedate"] = $this->_dateFormatBeforeSave($this->data["Record"]["releasedate"]);
+    $this->data["Record"]["artist_twitter"] = ltrim($this->data["Record"]["artist_twitter"], "@");
     return true; // "Be sure that beforeSave() returns true, or your save is going to fail."
   }
   
