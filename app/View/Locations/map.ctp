@@ -1,5 +1,5 @@
 <?php
-$this->Html->script(array("darkneuss", "http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0", "dnmap.js"), array("inline" => false));
+$this->Html->script(array("darkneuss", "http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=de-DE", "dnmap.js"), array("inline" => false));
 
 echo "<section><article>";
 echo "<div id=\"mapDiv\"></div>";
@@ -14,6 +14,6 @@ unset($locations);
 ?>
 <article>
   <footer>
-    Die Genauigkeit der Geo-Koordinaten kann geringfügig abweichen. Alle Angaben ohne Gewähr.
+    Die Genauigkeit der Geo-Koordinaten kann abweichen. Alle Angaben ohne Gewähr.
   </footer>
 </article>
