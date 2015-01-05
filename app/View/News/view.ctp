@@ -13,7 +13,7 @@
     if ($entry["Image"]["id"]) {
       echo "<figure>";
       echo $this->Html->image(
-        sprintf("/img/news/%s/%s.%s", substr($entry["Image"]["timestamp"], 0, 4), $entry["Image"]["filename"], $entry["Image"]["ext"]),
+        sprintf("/img/%s/%s/%s.%s", $entry["Image"]["cat"], substr($entry["Image"]["timestamp"], 0, 4), $entry["Image"]["filename"], $entry["Image"]["ext"]),
         $entry["Image"]["options"]
       );
       if ($entry["Image"]["descr"]) {
@@ -35,8 +35,8 @@
     }    
     ?>
     <footer>
-      <?php echo $this->Html->link("&laquo; zurück zur News-Übersicht", array("controller" => "news", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>
-      <?php echo $this->Html->link("diesen Artikel auf Facebook teilen &raquo;", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/news/" . $entry["News"]["url_id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>
+      <?php echo $this->Html->link("zurück zur News-Übersicht", array("controller" => "news", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")) ?>
+      <?php echo $this->Html->link("diesen Artikel auf Facebook teilen", "http://www.facebook.com/sharer/sharer.php?u=" . urlencode("http://darkneuss.de/news/" . $entry["News"]["url_id"]), array("target" => "_blank", "escape" => false, "class" => "float-right text-shadow")) ?>
     </footer>
   </article>
 </section>

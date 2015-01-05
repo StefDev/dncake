@@ -18,7 +18,7 @@ if ($location["Event"]) {
   }
   echo "</ul>";
 }
-printf("<footer>%s</footer>", $this->Html->link("&laquo; zur Locations-Übersicht", array("controller" => "locations", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")));
+printf("<footer>%s</footer>", $this->Html->link("zur Locations-Übersicht", array("controller" => "locations", "action" => "index"), array("escape" => false, "class" => "float-left text-shadow")));
 echo "  </article>";
 echo "</section>";
 unset($location);

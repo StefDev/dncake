@@ -24,6 +24,27 @@ class NewsController extends AppController {
       "image" => "http://darkneuss.de/img/fbdn.png"
     ));
   }
+  
+  public function hashtag($tag = null) {
+    $this->set("networks", array(
+      "activated" => $this->Cookie->read("nw") || 0,
+      "status" => array("de", null)
+    ));
+    $this->set("news", $this->News->find("all", array(
+      "conditions" => array("News.tag" => $tag),
+      "order" => array("News.created" => "DESC")
+    )));
+    $this->set("title_for_layout", sprintf("Alle News mit dem Hashtag #%s", ucfirst($tag)));
+    $this->set("description", sprintf("Auf dieser Seite findet ihr alle Artikel von DARKNEuSS.de mit dem Hashtag #%s", ucfirst($tag)));
+    $this->set("ogp", array(
+      "title" => sprintf("News mit dem Hashtag #%s - DARKNEuSS.de", ucfirst($tag)),
+      "type" => "website",
+      "url" => sprintf("http://darkneuss.de/news/hashtag/%s", $tag),
+      "image" => "http://darkneuss.de/img/fbdn.png"
+    ));
+    
+    $this->render("index");
+  }
 
   public function view($url_id = null) {
     $url_id = $this->request->params["url_id"];
@@ -58,7 +79,7 @@ class NewsController extends AppController {
   public function year($year = null) {
     $year = $this->request->params["year"];
   
-    $this->set("title_for_layout", "News aus dem Jahr " . $year);
+    $this->set("title_for_layout", "News aus dem Jahre " . $year);
   
     if (!$year) {
       throw new NotFoundException(__("Ungültige Jahreszahl"));
@@ -75,8 +96,17 @@ class NewsController extends AppController {
     $this->set("news", $news);
   }
 
-  
-  
+  public function most_read() {
+    $news = $this->News->find("all", array(
+      "order" => array("News.visited" => "DESC"),
+      "limit" => 5
+    ));
+    if (!empty($this->request->params["requested"])) {
+      return $news;
+    }
+    $this->set("news", $news);
+  }
+
   /* deprecated methods */
   public function deprc_view($id = null) {
     if (!$id) {

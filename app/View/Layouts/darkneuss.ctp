@@ -32,10 +32,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     
     // Meta Tags
     echo $this->fetch('meta');
+
     if (isset($description)) {
-      echo $this->Html->meta(array("name" => "Description", "content" => $description));
+      echo $this->Html->meta(array("name" => "description", "content" => $description));
     }
-    
+
     if (isset($ogp)) {
       foreach ($ogp as $property => $content) {
         echo $this->Html->meta(array("property" => sprintf("og:%s", $property), "content" => $content));
@@ -52,8 +53,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     }
 
     // Cascading Style Sheets
-		echo $this->fetch('css');
-    echo $this->Html->css(array("cake.generic", "darkneuss"));
+		echo $this->Html->css(array("cake.generic", "darkneuss"));
+    echo $this->fetch('css');
 	?>
   <!--[if lt IE 9]><?php echo $this->Html->css(array("ie")); ?><script src="http://devilschoice.de/javascript/html5shiv.js"></script><![endif]-->
 </head>
@@ -73,7 +74,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<header role="banner">
 			<h1>
         <a href="/news">darkne<span class="opaque">u</span>ss<span class="opaque">.de</span></a>
-        <span class="slogan">Metal <span class="lightblue dagger">&dagger;</span><br> Gothic <span class="lightblue dagger">&dagger;</span><br> Neuss</span>
+        <span class="slogan">Mettel<span class="lightblue dagger">&dagger;</span><br> Jossik <span class="lightblue dagger">&dagger;</span><br> Nüss</span>
       </h1>
       
       <?php echo $this->Navigation->main(); ?>

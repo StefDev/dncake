@@ -1,5 +1,6 @@
 // https://www.bingmapsportal.com
 // http://msdn.microsoft.com/en-us/library/gg427609.aspx
+// http://social.technet.microsoft.com/wiki/contents/articles/20958.migrating-bing-maps-v6-3-to-v7.aspx
 
 document.addEventListener("DOMContentLoaded", function() {
   if (typeof(locations) === "object") { GetMap(locations) };

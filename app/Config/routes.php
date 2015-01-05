@@ -33,6 +33,11 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
   
 /**
+ * my short url routes
+ */
+  Router::connect('/k/:id', array('controller' => 'events', 'action' => 'view'), array('id' => '[0-9]+'));
+
+/**
  * my routes
  */
   Router::connect(
@@ -40,22 +45,21 @@
     array('controller' => 'news', 'action' => 'year'),
     array('year' => '201[3-9]{1}')
   );
-  
+
   Router::connect(
     '/news/:url_id',
     array('controller' => 'news', 'action' => 'view'),
-    array('url_id' => '[\w-]+')
+    array('url_id' => '[a-z0-9-]+')
   );
-  
-  Router::connect('/bands/:id', array('controller' => 'bands', 'action' => 'view'));
-  
+
   Router::connect('/kalender', array('controller' => 'events', 'action' => 'index'));
   Router::connect('/kalender/details/:id', array('controller' => 'events', 'action' => 'view'), array('id' => '[0-9]+'));
-  
+
   Router::connect('/veroeffentlichungen', array('controller' => 'records', 'action' => 'index'));
-  Router::connect('/veroeffentlichungen/alle', array('controller' => 'records', 'action' => 'alle'));
-  Router::connect('/veroeffentlichungen/eintragen', array('controller' => 'records', 'action' => 'eintragen'));
-  
+  Router::connect('/veroeffentlichungen/:action', array('controller' => 'records'));
+
+  Router::connect('/bands/:id', array('controller' => 'bands', 'action' => 'view'));
+
   Router::connect('/festival', array('controller' => 'pages', 'action' => 'display', 'festival'));
   Router::connect('/impressum', array('controller' => 'pages', 'action' => 'display', 'impressum'));
   Router::connect('/vorlage', array('controller' => 'pages', 'action' => 'display', 'vorlage'));
@@ -69,12 +73,19 @@
     array('controller' => 'news', 'action' => 'index'),
     array('persistent' => true)
   );
-  
+
   Router::redirect(
     '/archiv',
     'http://darkneuss.blogspot.de',
     array('status' => 301)
   );
+
+  /* Router::redirect(
+    '/k/:id',
+    array('controller' => 'events', 'action' => 'view'),
+    array('id' => '[0-9]+', 'status' => 301)
+  ); */
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
