@@ -14,18 +14,18 @@
             <itunes:email>postfach@darkneuss.de</itunes:email>
         </itunes:owner>
         <!-- <itunes:image href="http://example.com/podcasts/everything/AllAboutEverything.jpg" /> -->
-        <itunes:category text="Technology">
-            <itunes:category text="Gadgets"/>
+        <itunes:category text="Music">
+            <itunes:category text="Alternative"/>
+            <itunes:category text="Metal"/>
         </itunes:category>
-        <itunes:category text="TV &amp; Film"/>
         <item>
             <title>DARKNEuSS.de Podcast E01</title>
             <itunes:author>Stefan Krieger</itunes:author>
             <!-- <itunes:subtitle></itunes:subtitle> -->
             <!-- <itunes:summary><![CDATA[This week we talk about <a href="#">salt and pepper shakers</a>, comparing]]</itunes:summary> -->
             <!-- <itunes:image href="http://example.com/podcasts/everything/AllAboutEverything/Episode1.jpg" /> -->
-            <enclosure url="http://darkneuss.de/downloads/podcasts/01.mp3" length="8727310" type="audio/mpeg" />
-            <guid>http://darkneuss.de/downloads/podcasts/01.mp3</guid>
+            <enclosure url="http://darkneuss.de/downloads/podcasts/dn-podcast-E01.mp3" length="8727310" type="audio/mpeg" />
+            <guid>http://darkneuss.de/downloads/podcasts/dn-podcast-E01.mp3</guid>
             <pubDate>Tue, 08 Mar 2016 20:15:00 GMT</pubDate>
             <itunes:duration>9:52</itunes:duration>
         </item>
